@@ -6,7 +6,7 @@ let arr = [0,1,2,3,4,5,6,7,8,9];
 let flag = 0;
 
 function Game1(){
-    const [displayWin, setDisplayWin] = useState(<div>ss</div>);
+    const [displayWin, setDisplayWin] = useState(<div className="font-mono font-bold text-center text-6xl text-cyan-200">Goooooo....</div>);
     function handleWin(){
         console.log(arr);
         //row x
@@ -69,23 +69,25 @@ function Game1(){
 
     }
     return(
-        <div className="flex justify-center items-center h-[86vh]">
-            <div className="border-8 border-[#fa02e1]">
-            <div className="border-4 border-red-600">
-            <div className="grid grid-cols-3 gap-2 w-64 h-64 bg-orange-400 border-8 border-yellow-300">
-                <MyButton no={1} handleWin={handleWin}/>
-                <MyButton no={2} handleWin={handleWin}/>
-                <MyButton no={3} handleWin={handleWin}/>
-                <MyButton no={4} handleWin={handleWin}/>
-                <MyButton no={5} handleWin={handleWin}/>
-                <MyButton no={6} handleWin={handleWin}/>
-                <MyButton no={7} handleWin={handleWin}/>
-                <MyButton no={8} handleWin={handleWin}/>
-                <MyButton no={9} handleWin={handleWin}/>
+        <div>
+            <div className="flex justify-center items-center h-[64vh]">
+                <div className="border-8 border-[#fa02e1]">
+                <div className="border-4 border-red-600">
+                <div className="grid grid-cols-3 gap-2 w-64 h-64 bg-orange-400 border-8 border-yellow-300">
+                    <MyButton no={1} handleWin={handleWin}/>
+                    <MyButton no={2} handleWin={handleWin}/>
+                    <MyButton no={3} handleWin={handleWin}/>
+                    <MyButton no={4} handleWin={handleWin}/>
+                    <MyButton no={5} handleWin={handleWin}/>
+                    <MyButton no={6} handleWin={handleWin}/>
+                    <MyButton no={7} handleWin={handleWin}/>
+                    <MyButton no={8} handleWin={handleWin}/>
+                    <MyButton no={9} handleWin={handleWin}/>
+                </div>
+                </div>
+                </div>
             </div>
-            </div>
-            </div>
-            <div>{displayWin}</div>
+            <div className="text-center">{displayWin}</div>
         </div>
     );
 }
