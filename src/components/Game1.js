@@ -98,7 +98,7 @@ function Game1(){
 
 function MyButton({no, handleWin, isZero, setIsZero}){
     const [done, setDone] = useState(false)
-    const [str, setStr] = useState(no);
+    const [str, setStr] = useState(".");
 
     function handleClick(){
         if(done === false){
@@ -115,15 +115,15 @@ function MyButton({no, handleWin, isZero, setIsZero}){
         }
         handleWin();//setTimeout
     }
-    let colo = "text-orange-500";
-    if(str === "o"){
-        colo = "text-white";
-    }
-    else if(str === "x"){
-        colo = "text-[#2206c2]";
-    }
+    // let colo = "text-orange-500";
+    // if(str === "o"){
+    //     colo = "text-white";
+    // }
+    // else if(str === "x"){
+    //     colo = "text-[#2206c2]";
+    // }
     return (
-        <div className={`bg-orange-500 flex justify-center items-baseline text-6xl font-medium ${colo}`} onClick={handleClick}>{str}</div>
+        <div className={`bg-orange-500 flex justify-center items-baseline text-6xl font-medium ${(str === "o")?"text-white":((str === "x")?"text-[#2206c2]":"text-orange-500")}`} onClick={handleClick}>{str}</div>
     );
 }
 export default Game1;
