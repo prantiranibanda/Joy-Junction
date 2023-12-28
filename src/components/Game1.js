@@ -4,10 +4,11 @@ import Winner2 from "./Winner2";
 import Draw from "./Draw";
 
 let arr = [0,1,2,3,4,5,6,7,8,9];
-let flag = 0;
+//let flag = 0;
 
 function Game1(){
     const [displayWin, setDisplayWin] = useState(<div className="font-mono font-bold text-center text-6xl text-cyan-200">Goooooo....</div>);
+    const [isZero, setIsZero] = useState(true);
     function handleWin(){
         console.log(arr);
         //row x
@@ -77,15 +78,15 @@ function Game1(){
                 <div className="border-8 border-[#fa02e1]">
                 <div className="border-4 border-red-600">
                 <div className="grid grid-cols-3 gap-2 w-64 h-64 bg-orange-400 border-8 border-yellow-300">
-                    <MyButton no={1} handleWin={handleWin}/>
-                    <MyButton no={2} handleWin={handleWin}/>
-                    <MyButton no={3} handleWin={handleWin}/>
-                    <MyButton no={4} handleWin={handleWin}/>
-                    <MyButton no={5} handleWin={handleWin}/>
-                    <MyButton no={6} handleWin={handleWin}/>
-                    <MyButton no={7} handleWin={handleWin}/>
-                    <MyButton no={8} handleWin={handleWin}/>
-                    <MyButton no={9} handleWin={handleWin}/>
+                    <MyButton no={1} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={2} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={3} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={4} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={5} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={6} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={7} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={8} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
+                    <MyButton no={9} handleWin={handleWin} isZero={isZero} setIsZero={setIsZero}/>
                 </div>
                 </div>
                 </div>
@@ -95,44 +96,24 @@ function Game1(){
     );
 }
 
-function MyButton({no, handleWin}){
-    const [isZero, setIsZero] = useState(true);
+function MyButton({no, handleWin, isZero, setIsZero}){
     const [done, setDone] = useState(false)
     const [str, setStr] = useState(no);
 
     function handleClick(){
-        setIsZero(!isZero); //!isZero
-        let s;
-        if(flag === 0 && done === false){
+        if(done === false){
+          setIsZero(!isZero);
             if(isZero){
-                s = "x";
+                arr[no]="x";
                 setStr("x");
             }
             else{
-                s = "o";
+                arr[no]="o";
                 setStr("o");
             }
-            arr[no]=s;
-            flag = 1;
             setDone(true);
         }
-        else if(flag === 1 && done === false){
-            if(isZero){
-                s = "o";
-                setStr("o");
-            }
-            else{
-                s = "x";
-                setStr("x");
-            }
-            arr[no]=s;
-            flag = 0;
-            setDone(true);
-        }
-        setTimeout(()=>{
-            handleWin();
-        },200)
-        
+        handleWin();//setTimeout
     }
     let colo = "text-orange-500";
     if(str === "o"){
