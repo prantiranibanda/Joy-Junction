@@ -1,67 +1,70 @@
 import { useState } from "react";
+import Winner1 from "./Winner1";
+import Winner2 from "./Winner2";
 
 let arr = [0,1,2,3,4,5,6,7,8,9];
 let flag = 0;
 
 function Game1(){
+    const [displayWin, setDisplayWin] = useState(<div>ss</div>);
     function handleWin(){
         console.log(arr);
         //row x
         if((arr[1] === arr[2]) && (arr[2] === arr[3]) && (arr[3] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
         if((arr[4] === arr[5]) && (arr[5] === arr[6]) && (arr[6] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
         if((arr[7] === arr[8]) && (arr[8] === arr[9]) && (arr[9] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
         //col x
         if((arr[1] === arr[4]) && (arr[4] === arr[7]) && (arr[7] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
 
         if((arr[2] === arr[5]) && (arr[5] === arr[8]) && (arr[8] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
         if((arr[3] === arr[6]) && (arr[6] === arr[9]) && (arr[9] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
         //diagonal x
         if((arr[1] === arr[5]) && (arr[5] === arr[9]) && (arr[9] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
         if((arr[3] === arr[5]) && (arr[5] === arr[7]) && (arr[7] === "x")){
-            console.log("Winner: Player1!");
+            setDisplayWin(<Winner1/>);
         }
 
         //row o
         if((arr[1] === arr[2]) && (arr[2] === arr[3]) && (arr[3] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
         if((arr[4] === arr[5]) && (arr[5] === arr[6]) && (arr[6] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
         if((arr[7] === arr[8]) && (arr[8] === arr[9]) && (arr[9] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
         //col x
         if((arr[1] === arr[4]) && (arr[4] === arr[7]) && (arr[7] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
 
         if((arr[2] === arr[5]) && (arr[5] === arr[8]) && (arr[8] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
         if((arr[3] === arr[6]) && (arr[6] === arr[9]) && (arr[9] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
         //diagonal x
         if((arr[1] === arr[5]) && (arr[5] === arr[9]) && (arr[9] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
         if((arr[3] === arr[5]) && (arr[5] === arr[7]) && (arr[7] === "o")){
-            console.log("Winner: Player2!");
+            setDisplayWin(<Winner2/>);
         }
 
     }
@@ -82,6 +85,7 @@ function Game1(){
             </div>
             </div>
             </div>
+            <div>{displayWin}</div>
         </div>
     );
 }
