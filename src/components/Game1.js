@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Winner1 from "./Winner1";
 import Winner2 from "./Winner2";
+import Draw from "./Draw";
 
 let arr = [0,1,2,3,4,5,6,7,8,9];
 let flag = 0;
@@ -66,7 +67,9 @@ function Game1(){
         if((arr[3] === arr[5]) && (arr[5] === arr[7]) && (arr[7] === "o")){
             setDisplayWin(<Winner2/>);
         }
-
+        if(arr[1]!==1 && arr[2]!==2 && arr[3]!==3 && arr[4]!==4 && arr[5]!==5 && arr[6]!==6 && arr[7]!==7 && arr[8]!==8 && arr[9]!==9){
+            setDisplayWin(<Draw/>);
+        }
     }
     return(
         <div>
@@ -91,15 +94,14 @@ function Game1(){
         </div>
     );
 }
-function MyButton({no, handleWin}) {
+
+function MyButton({no, handleWin}){
     const [isZero, setIsZero] = useState(true);
     const [done, setDone] = useState(false)
-    
-    
     const [str, setStr] = useState(no);
 
     function handleClick(){
-        setIsZero((isZero)?false:true);
+        setIsZero(!isZero); //!isZero
         let s;
         if(flag === 0 && done === false){
             if(isZero){
@@ -132,7 +134,7 @@ function MyButton({no, handleWin}) {
         },200)
         
     }
-    let colo = "text-blue-500";
+    let colo = "text-orange-500";
     if(str === "o"){
         colo = "text-white";
     }

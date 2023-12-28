@@ -1,8 +1,8 @@
-function Winner1(){
+function Draw(){
     return(
         <div className="font-mono font-bold text-center text-5xl text-cyan-200">
-            Winner: playerX
+            Draw....!!
         </div>
     );
 }
-export default Winner1;
+export default Draw;
