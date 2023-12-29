@@ -66,7 +66,7 @@ function Game1(){
     ];
     const [str, setStr] = useState(strArray);
     function handleWin(str){
-        console.log(str);
+        //console.log(str);
         //row x
         if((str[1].data === str[2].data) && (str[2].data === str[3].data) && (str[3].data === "x")){
             setDisplayWin(<Winner win="Winner: playerX"/>);
@@ -133,17 +133,25 @@ function Game1(){
             setIsZero(!isZero);
             if(isZero){
                 setStr(
-                    str.map((eachStr)=>
-                        (eachStr.id === no)?{...eachStr, data: "x", done: true}:{...eachStr}
-                    )
+                    (prev)=>{
+                        let temp = prev.map((eachStr)=>
+                            (eachStr.id === no)?{...eachStr, data: "x", done: true}:{...eachStr}
+                        )
+                        return temp;
+                    }
                 )
+                //console.log(str);
             }
             else{
                 setStr(
-                    str.map((eachStr)=>
-                        (eachStr.id === no)?{...eachStr, data: "o", done: true}:{...eachStr}
-                    )
+                    (prev)=>{
+                        let temp = prev.map((eachStr)=>
+                            (eachStr.id === no)?{...eachStr, data: "o", done: true}:{...eachStr}
+                        )
+                        return temp;
+                    }
                 )
+                //console.log(str);
             }
         }
         handleWin(str);//setTimeout
