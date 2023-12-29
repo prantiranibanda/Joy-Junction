@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Winner from "./Winner";
+import MyButton from "./MyButton";
 import Draw from "./Draw";
 
 //let arr = [0,1,2,3,4,5,6,7,8,9];
@@ -69,60 +70,60 @@ function Game1(){
         console.log(str);
         //row x
         if((str[1].data === str[2].data) && (str[2].data === str[3].data) && (str[3].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((str[4].data === str[5].data) && (str[5].data === str[6].data) && (str[6].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((str[7].data === str[8].data) && (str[8].data === str[9].data) && (str[9].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         //col x
         else if((str[1].data === str[4].data) && (str[4].data === str[7].data) && (str[7].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
 
         else if((str[2].data === str[5].data) && (str[5].data === str[8].data) && (str[8].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((str[3].data === str[6].data) && (str[6].data === str[9].data) && (str[9].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         //diagonal x
         else if((str[1].data === str[5].data) && (str[5].data === str[9].data) && (str[9].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((str[3].data === str[5].data) && (str[5].data === str[7].data) && (str[7].data === "x")){
-            setDisplayWin(<Winner win="Winner: playerX"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
 
         //row o
         else if((str[1].data === str[2].data) && (str[2].data === str[3].data) && (str[3].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((str[4].data === str[5].data) && (str[5].data === str[6].data) && (str[6].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((str[7].data === str[8].data) && (str[8].data === str[9].data) && (str[9].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         //col o
         else if((str[1].data === str[4].data) && (str[4].data === str[7].data) && (str[7].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
 
         else if((str[2].data === str[5].data) && (str[5].data === str[8].data) && (str[8].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((str[3].data === str[6].data) && (str[6].data === str[9].data) && (str[9].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         //diagonal o
         else if((str[1].data === str[5].data) && (str[5].data === str[9].data) && (str[9].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((str[3].data === str[5].data) && (str[5].data === str[7].data) && (str[7].data === "o")){
-            setDisplayWin(<Winner win="Winner: playerO"/>);
+            setDisplayWin(<Winner str={str} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if(str[1].data!=="." && str[2].data!=="." && str[3].data!=="." && str[4].data!=="." && str[5].data!=="." && str[6].data!=="." && str[7].data!=="." && str[8].data!=="." && str[9].data!=="."){
             setDisplayWin(<Draw/>);
@@ -155,10 +156,10 @@ function Game1(){
                     //console.log(str);
                 }
             }
-        }
-        
+        } 
         test().then(()=>{handleWin(temp)});//setTimeout
     }
+
     return(
         <div>
             <div className="flex justify-center items-center h-[58vh]">
@@ -180,17 +181,6 @@ function Game1(){
             </div>
             <div className="text-center">{displayWin}</div>
         </div>
-    );
-}
-
-function MyButton({no, handleClick, str}){
-
-    function handleHandleClick(){
-        handleClick(no, str);
-    }
-    let cl = `bg-orange-500 flex justify-center items-baseline text-6xl font-medium ${(str[no].data === "o")?"text-white":((str[no].data === "x")?"text-[#2206c2]":"text-orange-500")}`
-    return (
-        <div className={`${cl}`} onClick={handleHandleClick}>{str[no].data}</div>
     );
 }
 export default Game1;

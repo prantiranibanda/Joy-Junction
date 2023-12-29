@@ -1,6 +1,65 @@
-function Winner({win}){
+function Winner({str, setStr, setIsZero, setDisplayWin, win}){
     function handleReset(){
-
+        let strArray = [
+            {
+                id: 0,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 1,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 2,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 3,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 4,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 5,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 6,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 7,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 8,
+                data: ".",
+                done: false,
+            },
+            {
+                id: 9,
+                data: ".",
+                done: false,
+            },
+        ];
+        setStr(strArray)
+        //console.log("object")  
+        setIsZero(true);
+        setDisplayWin(
+            <div>
+            <div className="font-mono font-bold text-center text-6xl text-cyan-200">Goooooo....</div>
+            </div>
+        ); 
     }
     return(
         <div>
