@@ -66,7 +66,7 @@ function Game1(){
     ];
     const [str, setStr] = useState(strArray);
     function handleWin(str){
-        //console.log(str);
+        console.log(str);
         //row x
         if((str[1].data === str[2].data) && (str[2].data === str[3].data) && (str[3].data === "x")){
             setDisplayWin(<Winner win="Winner: playerX"/>);
@@ -129,32 +129,35 @@ function Game1(){
         }
     }
     function handleClick(no, str){
-        if(str[no].done === false){
-            setIsZero(!isZero);
-            if(isZero){
-                setStr(
-                    (prev)=>{
-                        let temp = prev.map((eachStr)=>
-                            (eachStr.id === no)?{...eachStr, data: "x", done: true}:{...eachStr}
-                        )
-                        return temp;
-                    }
-                )
-                //console.log(str);
-            }
-            else{
-                setStr(
-                    (prev)=>{
-                        let temp = prev.map((eachStr)=>
-                            (eachStr.id === no)?{...eachStr, data: "o", done: true}:{...eachStr}
-                        )
-                        return temp;
-                    }
-                )
-                //console.log(str);
+        let temp;
+        async function test(){
+            if(str[no].done === false){
+                setIsZero(!isZero);
+                if(isZero){
+                    setStr(
+                        (prev)=>{
+                            temp = prev.map((eachStr)=>
+                                (eachStr.id === no)?{...eachStr, data: "x", done: true}:{...eachStr}
+                            )
+                            return temp;
+                        }
+                    )
+                }
+                else{
+                    setStr(
+                        (prev)=>{
+                            temp = prev.map((eachStr)=>
+                                (eachStr.id === no)?{...eachStr, data: "o", done: true}:{...eachStr}
+                            )
+                            return temp;
+                        }
+                    )
+                    //console.log(str);
+                }
             }
         }
-        handleWin(str);//setTimeout
+        
+        test().then(()=>{handleWin(temp)});//setTimeout
     }
     return(
         <div>
