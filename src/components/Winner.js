@@ -1,6 +1,6 @@
-function Winner({func,win}){
+function Winner({win}){
     function handleReset(){
-        func(".");
+
     }
     return(
         <div>
