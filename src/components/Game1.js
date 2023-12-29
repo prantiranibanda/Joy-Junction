@@ -3,6 +3,7 @@ import Winner from "./Winner";
 import Draw from "./Draw";
 
 //let arr = [0,1,2,3,4,5,6,7,8,9];
+
 function Game1(){
     const [displayWin, setDisplayWin] = useState(
         <div>
@@ -64,88 +65,88 @@ function Game1(){
         },
     ];
     const [str, setStr] = useState(strArray);
-    // function handleWin(){
-    //     //console.log(str);
-    //     //row x
-    //     if((str[1].data === str[2].data) && (str[2].data === str[3].data) && (str[3].data === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
-    //     else if((arr[4] === arr[5]) && (arr[5] === arr[6]) && (arr[6] === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
-    //     else if((arr[7] === arr[8]) && (arr[8] === arr[9]) && (arr[9] === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
-    //     //col x
-    //     else if((arr[1] === arr[4]) && (arr[4] === arr[7]) && (arr[7] === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
+    function handleWin(str){
+        console.log(str);
+        //row x
+        if((str[1].data === str[2].data) && (str[2].data === str[3].data) && (str[3].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
+        else if((str[4].data === str[5].data) && (str[5].data === str[6].data) && (str[6].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
+        else if((str[7].data === str[8].data) && (str[8].data === str[9].data) && (str[9].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
+        //col x
+        else if((str[1].data === str[4].data) && (str[4].data === str[7].data) && (str[7].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
 
-    //     else if((arr[2] === arr[5]) && (arr[5] === arr[8]) && (arr[8] === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
-    //     else if((arr[3] === arr[6]) && (arr[6] === arr[9]) && (arr[9] === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
-    //     //diagonal x
-    //     else if((arr[1] === arr[5]) && (arr[5] === arr[9]) && (arr[9] === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
-    //     else if((arr[3] === arr[5]) && (arr[5] === arr[7]) && (arr[7] === "x")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerX"/>);
-    //     }
+        else if((str[2].data === str[5].data) && (str[5].data === str[8].data) && (str[8].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
+        else if((str[3].data === str[6].data) && (str[6].data === str[9].data) && (str[9].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
+        //diagonal x
+        else if((str[1].data === str[5].data) && (str[5].data === str[9].data) && (str[9].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
+        else if((str[3].data === str[5].data) && (str[5].data === str[7].data) && (str[7].data === "x")){
+            setDisplayWin(<Winner win="Winner: playerX"/>);
+        }
 
-    //     //row o
-    //     else if((arr[1] === arr[2]) && (arr[2] === arr[3]) && (arr[3] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
-    //     else if((arr[4] === arr[5]) && (arr[5] === arr[6]) && (arr[6] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
-    //     else if((arr[7] === arr[8]) && (arr[8] === arr[9]) && (arr[9] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
-    //     //col o
-    //     else if((arr[1] === arr[4]) && (arr[4] === arr[7]) && (arr[7] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
+        //row o
+        else if((str[1].data === str[2].data) && (str[2].data === str[3].data) && (str[3].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
+        else if((str[4].data === str[5].data) && (str[5].data === str[6].data) && (str[6].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
+        else if((str[7].data === str[8].data) && (str[8].data === str[9].data) && (str[9].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
+        //col o
+        else if((str[1].data === str[4].data) && (str[4].data === str[7].data) && (str[7].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
 
-    //     else if((arr[2] === arr[5]) && (arr[5] === arr[8]) && (arr[8] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
-    //     else if((arr[3] === arr[6]) && (arr[6] === arr[9]) && (arr[9] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
-    //     //diagonal o
-    //     else if((arr[1] === arr[5]) && (arr[5] === arr[9]) && (arr[9] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
-    //     else if((arr[3] === arr[5]) && (arr[5] === arr[7]) && (arr[7] === "o")){
-    //         setDisplayWin(<Winner arr={arr} win="Winner: playerO"/>);
-    //     }
-    //     else if(arr[1]!==1 && arr[2]!==2 && arr[3]!==3 && arr[4]!==4 && arr[5]!==5 && arr[6]!==6 && arr[7]!==7 && arr[8]!==8 && arr[9]!==9){
-    //         setDisplayWin(<Draw/>);
-    //     }
-    // }
+        else if((str[2].data === str[5].data) && (str[5].data === str[8].data) && (str[8].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
+        else if((str[3].data === str[6].data) && (str[6].data === str[9].data) && (str[9].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
+        //diagonal o
+        else if((str[1].data === str[5].data) && (str[5].data === str[9].data) && (str[9].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
+        else if((str[3].data === str[5].data) && (str[5].data === str[7].data) && (str[7].data === "o")){
+            setDisplayWin(<Winner win="Winner: playerO"/>);
+        }
+        else if(str[1].data!=="." && str[2].data!=="." && str[3].data!=="." && str[4].data!=="." && str[5].data!=="." && str[6].data!=="." && str[7].data!=="." && str[8].data!=="." && str[9].data!=="."){
+            setDisplayWin(<Draw/>);
+        }
+    }
     function handleClick(no, str){
         if(str[no].done === false){
             setIsZero(!isZero);
             if(isZero){
                 setStr(
-                    str.map((eachStr, index)=>
+                    str.map((eachStr)=>
                         (eachStr.id === no)?{...eachStr, data: "x", done: true}:{...eachStr}
                     )
                 )
             }
             else{
                 setStr(
-                    str.map((eachStr, index)=>
+                    str.map((eachStr)=>
                         (eachStr.id === no)?{...eachStr, data: "o", done: true}:{...eachStr}
                     )
                 )
             }
         }
-        //handleWin();//setTimeout
+        handleWin(str);//setTimeout
     }
     return(
         <div>
