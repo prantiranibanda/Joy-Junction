@@ -1,20 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Winner from "./Winner";
 import MyButton from "./MyButton";
-import Draw from "./Draw";
 
 //let arr = [0,1,2,3,4,5,6,7,8,9];
 let temp;
 function Game1(){
-    
     const [isZero, setIsZero] = useState(true);
+    const [player, setPlayer] = useState("Gooooo.....PlayerX");
     const [displayWin, setDisplayWin] = useState(
         <div>
-            <div className="font-mono font-bold text-center text-6xl text-cyan-200">
-                Goooooo....
-            </div>
+            <div className="font-mono font-bold text-center text-6xl text-cyan-200">{player}</div>
         </div>
     );
+    useEffect(()=>{
+        setDisplayWin(
+            <div>
+                <div className="font-mono font-bold text-center text-6xl text-cyan-200">{player}</div>
+            </div>
+        )
+    },[player])
     //const [winner, setWinner] = useState("");
     let strArray = [
         {
@@ -73,63 +77,63 @@ function Game1(){
         console.log(s);
         //row x
         if((s[1].data === s[2].data) && (s[2].data === s[3].data) && (s[3].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         //col x
         else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
 
         else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         //diagonal x
         else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
         else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "x")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerX"/>);
         }
 
         //row o
         else if((s[1].data === s[2].data) && (s[2].data === s[3].data) && (s[3].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         //col o
         else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
 
         else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         //diagonal o
         else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "o")){
-            setDisplayWin(<Winner s={s} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Winner: playerO"/>);
         }
         else if(s[1].data!=="." && s[2].data!=="." && s[3].data!=="." && s[4].data!=="." && s[5].data!=="." && s[6].data!=="." && s[7].data!=="." && s[8].data!=="." && s[9].data!=="."){
-            setDisplayWin(<Draw/>);
+            setDisplayWin(<Winner setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} win="Draw...!!"/>);
         }
     }
     function handleClick(no, str){
@@ -137,6 +141,7 @@ function Game1(){
         async function test(){
             if(str[no].done === false){
                 setIsZero(!isZero);
+                //X and O handle
                 if(isZero){
                     setStr(
                         (prev)=>{
@@ -146,6 +151,7 @@ function Game1(){
                             return temp;
                         }
                     )
+                    setPlayer("PlayerO's turn");
                 }
                 else{
                     setStr(
@@ -156,7 +162,7 @@ function Game1(){
                             return temp;
                         }
                     )
-                    //console.log(str);
+                    setPlayer("PlayerX's turn");
                 }
             }
             else{

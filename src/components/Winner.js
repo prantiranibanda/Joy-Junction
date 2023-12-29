@@ -1,4 +1,4 @@
-function Winner({str, setStr, setIsZero, setDisplayWin, win}){
+function Winner({setStr, setIsZero, setDisplayWin, win}){
     function handleReset(){
         let strArray = [
             {
@@ -57,7 +57,7 @@ function Winner({str, setStr, setIsZero, setDisplayWin, win}){
         setIsZero(true);
         setDisplayWin(
             <div>
-            <div className="font-mono font-bold text-center text-6xl text-cyan-200">Goooooo....</div>
+                <div className="font-mono font-bold text-center text-6xl text-cyan-200">Gooooo.....PlayerX</div>
             </div>
         ); 
     }
