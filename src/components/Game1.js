@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Winner from "./Winner";
 import MyButton from "./MyButton";
+import music from '../audio/music.wav';
+import sound from '../audio/sound.mp3';
 
 let temp;
 function Game1(){
@@ -79,91 +81,115 @@ function Game1(){
 //str is the string for displaying o or x in the tictactoe board
     const [str, setStr] = useState(strArray);
 
-//Logic for finding the winner of the game or the main logic of the game   
+//Logic for finding the winner of the game or the main logic of the game  
+    function winsound(){
+        return new Audio(music).play()
+    }
     function handleWin(s){
         console.log(s);
         //row x
         if((s[1].data === s[2].data) && (s[2].data === s[3].data) && (s[3].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
         else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
         else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
         //col x
         else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
 
         else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
         else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
         //diagonal x
         else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
         else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "x")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
 
         //row o
         else if((s[1].data === s[2].data) && (s[2].data === s[3].data) && (s[3].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
         else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
         else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
         //col o
         else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
 
         else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
         else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
         //diagonal o
         else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
         else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "o")){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
         }
         else if(s[1].data!=="." && s[2].data!=="." && s[3].data!=="." && s[4].data!=="." && s[5].data!=="." && s[6].data!=="." && s[7].data!=="." && s[8].data!=="." && s[9].data!=="."){
             setWinner(true);
+            winsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Draw...!!"/>);
         }
     }
-
+//SoundEffect
+    function playy(){
+        return new Audio(sound).play()
+    }
     function handleClick(no, str){
-        
+        playy();
         async function test(){
+
             if(str[no].done === false && winner === false){
                 setIsZero(!isZero);
                 //X and O handle
