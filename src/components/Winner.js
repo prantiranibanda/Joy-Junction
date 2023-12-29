@@ -57,11 +57,11 @@ function Winner({setWinner, setStr, setIsZero, setDisplayWin, player, setPlayer,
         setIsZero(true);
         setPlayer("Gooooo.....PlayerX");
         setWinner(false);
-        setDisplayWin(
-            <div>
-                <div className="font-mono font-bold text-center text-6xl text-cyan-200">{player}</div>
-            </div>
-        ); 
+        // setDisplayWin(
+        //     <div>
+        //         <div className="font-mono font-bold text-center text-6xl text-cyan-200">{player}</div>
+        //     </div>
+        // ); 
     }
     return(
         <div>
