@@ -3,6 +3,7 @@ import Winner from "./Winner";
 import MyButton from "./MyButton";
 import music from '../audio/music.wav';
 import sound from '../audio/sound.mp3';
+import draw from '../audio/draw.wav';
 
 let temp;
 function Game1(){
@@ -84,6 +85,9 @@ function Game1(){
 //Logic for finding the winner of the game or the main logic of the game  
     function winsound(){
         return new Audio(music).play()
+    }
+    function drawsound(){
+        return new Audio(draw).play()
     }
     function handleWin(s){
         console.log(s);
@@ -178,7 +182,7 @@ function Game1(){
         }
         else if(s[1].data!=="." && s[2].data!=="." && s[3].data!=="." && s[4].data!=="." && s[5].data!=="." && s[6].data!=="." && s[7].data!=="." && s[8].data!=="." && s[9].data!=="."){
             setWinner(true);
-            winsound();
+            drawsound();
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Draw...!!"/>);
         }
     }
