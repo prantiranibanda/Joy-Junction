@@ -104,94 +104,110 @@ function Game1(){
             winclick();
             setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
         }
-        // else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "x")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
-        // }
-        // else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "x")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
-        // }
-        // //col x
-        // else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "x")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
-        // }
+        else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "x")){
+            strikethrough = "w-56 transform rotate-0";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
+        }
+        else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "x")){
+            strikethrough = "w-56 mt-40 transform rotate-0";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
+        }
+        //col x
+        else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "x")){
+            strikethrough = "w-56 mr-40 transform rotate-90";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
+        }
 
-        // else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "x")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
-        // }
-        // else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "x")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
-        // }
-        // //diagonal x
-        // else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "x")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
-        // }
-        // else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "x")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
-        // }
+        else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "x")){
+            strikethrough = "w-56 transform rotate-90";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
+        }
+        else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "x")){
+            strikethrough = "w-56 ml-40 transform rotate-90";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
+        }
+        //diagonal x
+        else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "x")){
+            strikethrough = "w-72 transform rotate-45";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
+        }
+        else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "x")){
+            strikethrough = "w-72 transform -rotate-45";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerX"/>);
+        }
 
-        // //row o
-        // else if((s[1].data === s[2].data) && (s[2].data === s[3].data) && (s[3].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
-        // else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
-        // else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
-        // //col o
-        // else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
+        //row o
+        else if((s[1].data === s[2].data) && (s[2].data === s[3].data) && (s[3].data === "o")){
+            strikethrough = "w-56 mb-40 transform rotate-0";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
+        else if((s[4].data === s[5].data) && (s[5].data === s[6].data) && (s[6].data === "o")){
+            strikethrough = "w-56 transform rotate-0";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
+        else if((s[7].data === s[8].data) && (s[8].data === s[9].data) && (s[9].data === "o")){
+            strikethrough = "w-56 mt-40 transform rotate-0";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
+        //col o
+        else if((s[1].data === s[4].data) && (s[4].data === s[7].data) && (s[7].data === "o")){
+            strikethrough = "w-56 mr-40 transform rotate-90";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
 
-        // else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
-        // else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
-        // //diagonal o
-        // else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
-        // else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "o")){
-        //     setWinner(true);
-        //     winclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
-        // }
-        // else if(s[1].data!=="." && s[2].data!=="." && s[3].data!=="." && s[4].data!=="." && s[5].data!=="." && s[6].data!=="." && s[7].data!=="." && s[8].data!=="." && s[9].data!=="."){
-        //     setWinner(true);
-        //     drawclick();
-        //     setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Draw...!!"/>);
-        // }
+        else if((s[2].data === s[5].data) && (s[5].data === s[8].data) && (s[8].data === "o")){
+            strikethrough = "w-56 transform rotate-90";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
+        else if((s[3].data === s[6].data) && (s[6].data === s[9].data) && (s[9].data === "o")){
+            strikethrough = "w-56 ml-40 transform rotate-90";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
+        //diagonal o
+        else if((s[1].data === s[5].data) && (s[5].data === s[9].data) && (s[9].data === "o")){
+            strikethrough = "w-72 transform rotate-45";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
+        else if((s[3].data === s[5].data) && (s[5].data === s[7].data) && (s[7].data === "o")){
+            strikethrough = "w-72 transform -rotate-45";
+            setWinner(true);
+            winclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Winner: playerO"/>);
+        }
+        else if(s[1].data!=="." && s[2].data!=="." && s[3].data!=="." && s[4].data!=="." && s[5].data!=="." && s[6].data!=="." && s[7].data!=="." && s[8].data!=="." && s[9].data!=="."){
+            strikethrough = "hidden";
+            setWinner(true);
+            drawclick();
+            setDisplayWin(<Winner wino={wino} drawo={drawo} setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Draw...!!"/>);
+        }
     }
 //SoundEffect
     function playy(){
@@ -240,7 +256,7 @@ function Game1(){
                 <div className="border-8 border-[#fa02e1]">
                 <div className="relative flex justify-center items-center border-4 border-red-600">
                     {
-                        (winner)?<div className={`absolute h-1 bg-red-500 ${strikethrough}`}></div>:<div className={`absolute h-1 hidden bg-red-500 ${strikethrough}`}></div>
+                        (winner)?<div className={`absolute h-1 bg-red-700 rounded-md ${strikethrough}`}></div>:<div className={`absolute h-1 hidden bg-red-500 ${strikethrough}`}></div>
                     }
                     <div className="grid grid-cols-3 gap-2 w-64 h-64 bg-orange-400 border-8 border-yellow-300">
                         <MyButton no={1} handleClick={handleClick} str={str}/>
