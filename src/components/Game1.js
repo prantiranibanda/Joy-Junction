@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import Winner from "./Winner";
 import MyButton from "./MyButton";
 
-//let arr = [0,1,2,3,4,5,6,7,8,9];
 let temp;
 function Game1(){
+//handles the toggling of x and o
     const [isZero, setIsZero] = useState(true);
+//displaying winner and alternative player using displayWin and player state
     const [player, setPlayer] = useState("Gooooo.....PlayerX");
     const [displayWin, setDisplayWin] = useState(
         <div>
@@ -19,17 +20,20 @@ function Game1(){
             </div>
         )
     },[player])
+//handling the turn after winning using winner state
     const [winner, setWinner] = useState(false);
+//Initial value of str is strArray
     let strArray = [
         {
             id: 0,
             data: ".",
-            done: false,
+            done: false, 
         },
+        //upper portion or the 0th element of the array is only for convenience as the first cell is marked as 1
         {
             id: 1,
             data: ".",
-            done: false,
+            done: false, //after one cell is occupied with o or x it is used for preventing the changing of that cell
         },
         {
             id: 2,
@@ -72,7 +76,10 @@ function Game1(){
             done: false,
         },
     ];
+//str is the string for displaying o or x in the tictactoe board
     const [str, setStr] = useState(strArray);
+
+//Logic for finding the winner of the game or the main logic of the game   
     function handleWin(s){
         console.log(s);
         //row x
@@ -153,6 +160,7 @@ function Game1(){
             setDisplayWin(<Winner setWinner={setWinner} setStr={setStr} setIsZero={setIsZero} setDisplayWin={setDisplayWin} player={player} setPlayer={setPlayer} win="Draw...!!"/>);
         }
     }
+
     function handleClick(no, str){
         
         async function test(){
