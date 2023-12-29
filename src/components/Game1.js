@@ -225,8 +225,8 @@ function Game1(){
                     setPlayer("PlayerX's turn");
                 }
             }
-            else if(winner === true){;
-                alert("Please restart the game, we have already got our winner..!!");
+            else if(winner === true){
+                //alert("Please restart the game, we have already got our winner..!!");
             }
         } 
         test().then(()=>{handleWin(temp)});//setTimeout
