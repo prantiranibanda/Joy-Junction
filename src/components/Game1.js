@@ -14,7 +14,7 @@ function Game1(){
 //handles the toggling of x and o
     const [isZero, setIsZero] = useState(true);
 //displaying winner and alternative player using displayWin and player state
-    const [player, setPlayer] = useState("Gooooo.....PlayerX");
+    const [player, setPlayer] = useState("Gooo....PlayerX");
     const [displayWin, setDisplayWin] = useState(
         <div>
             <div className="font-mono font-bold text-center text-6xl text-cyan-200">{player}</div>
