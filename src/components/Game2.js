@@ -2,12 +2,7 @@ import { useState } from "react";
 
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(null);
-
-    function rollDice(){
-        let randomNumber = ((Math.floor(Math.random() * 6))+1);
-        setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>)
-    }
-    
+    const [sum, setSum] = useState(0);
     // return(
     //     <div className="flex flex-col justify-center items-center h-[80vh]">
     //         <div className="w-56 h-56 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
@@ -27,24 +22,59 @@ function Game2(){
             }
             for(let j=0; j<10; j++){
                 if((i%2) === 0){
-                    arr.push(k);
+                    arr.push({
+                        id: k,
+                        data: "",
+                        isEqualToSum: false,
+                    });
                     k--;
                 }
                 else{
-                    arr.push(k);
+                    arr.push({
+                        id: k,
+                        data: "",
+                        isEqualToSum: false,
+                    });
                     k++;
                 }
             }
-            //System.out.println();
         }
-    console.log(arr);
+    //console.log(arr);
+    const [buttonArray, setButtonArray] = useState(arr);
+    let randomNumber,temp;
+    
+    function rollDice(){
+        setButtonArray(
+            
+                buttonArray.map((eachbutton)=>
+                    (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                )
+                // console.log(temp);
+                
+        )
+
+        randomNumber = ((Math.floor(Math.random() * 6))+1);
+        setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
+        setSum(sum + randomNumber);
+            
+        // arr[i].isEqualToSum = true;
+        // arr[i].data = "rounded-full absolute bg-green-400",
+        setButtonArray(
+            
+                buttonArray.map((eachbutton)=>
+                    (eachbutton.id === sum)?{...eachbutton, data: "bg-green-400", isEqualToSum: true}:{...eachbutton}
+                )
+                // console.log(temp);
+                
+        ) 
+    }
     
     return (
         <div className="flex justify-center items-center h-[80vh]">
         <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-green-500 bg-auto bg-center">
             <div className="grid grid-cols-10 h-[485px] w-[485px]">
-            {arr.map((ele)=>{
-                return (<MyCell ele={ele}/>);
+            {arr.map((ele, index)=>{
+                return (<MyCell index={index} buttonArray={buttonArray}/>);
             })}
             </div>
             <div className="w-9 h-9 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
@@ -52,14 +82,10 @@ function Game2(){
         </div>
         </div>
   );
-  function MyCell({ele}){
-    const [b, setB] = useState("");
-
-    function func(){
-            setB("bg-red-300");
-    }
+  function MyCell({index, buttonArray}){
     return (
-        <div className={`hover:bg-slate-400 ${b}`} onClick={func}></div>
+            <div className={`${(buttonArray[index].isEqualToSum)?buttonArray[index].data:buttonArray[index].data}`}>{buttonArray[index].id}</div>
+        
     );
   }
 }
