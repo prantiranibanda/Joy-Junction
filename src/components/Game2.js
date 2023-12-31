@@ -54,22 +54,7 @@ function Game2(){
         //     }
         // )
     }
-
-    function rollDice(){
-        setButtonArray(
-            (prev)=>{
-                temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                )
-                // console.log(temp); 
-                return temp;
-            }
-        )
-        
-        randomNumber = ((Math.floor(Math.random() * 6))+1);
-        setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
-        setSum(sum + randomNumber);
-         
+    function move(){
         setButtonArray(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
@@ -83,6 +68,23 @@ function Game2(){
             handleFunc(temp);
         }, 200);
     }
+    function rollDice(){
+        setButtonArray(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                )
+                // console.log(temp); 
+                return temp;
+            }
+        )
+
+        randomNumber = ((Math.floor(Math.random() * 6))+1);
+        setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
+        setSum(sum + randomNumber);
+         
+        
+    }
     
     return (
         <div className="flex justify-center items-center h-[80vh]">
@@ -94,6 +96,7 @@ function Game2(){
             </div>
             <div className="w-9 h-9 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
             <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>Click to roll</button>
+            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={move}>move</button>
         </div>
         </div>
   );
