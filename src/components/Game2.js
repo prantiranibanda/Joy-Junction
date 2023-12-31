@@ -53,12 +53,25 @@ function Game2(){
         //         return temp;
         //     }
         // )
+        if(sum === 5){
+            setSum(sum + 53);
+            setButtonArray(
+                (prev)=>{
+                    temp = prev.map((eachbutton)=>
+                        (eachbutton.id === sum)?{...eachbutton, data: "rounded-full bg-green-400", isEqualToSum: true}:{...eachbutton}
+                    )
+                    // console.log(temp);
+                    return temp;
+                }    
+            ) 
+        }
+        
     }
     function move(){
         setButtonArray(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum)?{...eachbutton, data: "bg-green-400", isEqualToSum: true}:{...eachbutton}
+                    (eachbutton.id === sum)?{...eachbutton, data: "rounded-full bg-green-400", isEqualToSum: true}:{...eachbutton}
                 )
                 // console.log(temp);
                 return temp;
