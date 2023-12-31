@@ -42,31 +42,46 @@ function Game2(){
     //console.log(arr);
     const [buttonArray, setButtonArray] = useState(arr);
     let randomNumber,temp;
-    
+
+    function handleFunc(temp){
+        // setButtonArray(
+        //     (prev)=>{
+        //         temp = prev.map((eachbutton)=>
+        //             (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+        //         )
+        //         // console.log(temp); 
+        //         return temp;
+        //     }
+        // )
+    }
+
     function rollDice(){
         setButtonArray(
-            
-                buttonArray.map((eachbutton)=>
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
                     (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                 )
-                // console.log(temp);
-                
+                // console.log(temp); 
+                return temp;
+            }
         )
-
+        
         randomNumber = ((Math.floor(Math.random() * 6))+1);
         setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
         setSum(sum + randomNumber);
-            
-        // arr[i].isEqualToSum = true;
-        // arr[i].data = "rounded-full absolute bg-green-400",
+         
         setButtonArray(
-            
-                buttonArray.map((eachbutton)=>
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
                     (eachbutton.id === sum)?{...eachbutton, data: "bg-green-400", isEqualToSum: true}:{...eachbutton}
                 )
                 // console.log(temp);
-                
+                return temp;
+            }    
         ) 
+        setTimeout(() => {
+            handleFunc(temp);
+        }, 200);
     }
     
     return (
