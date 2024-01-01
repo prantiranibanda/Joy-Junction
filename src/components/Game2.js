@@ -82,6 +82,21 @@ function Game2(){
             else if(s === 64){
                 setSum(s+19);
             }
+            else if(s === 38){
+                setSum(s-18);
+            }
+            else if(s === 51){
+                setSum(s-41);
+            }
+            else if(s === 76){
+                setSum(s-22);
+            }
+            else if(s === 91){
+                setSum(s-18);
+            }
+            else if(s === 97){
+                setSum(s-36);
+            }
             else{
                 setSum(s);
             }
