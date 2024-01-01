@@ -68,20 +68,22 @@ function Game2(){
         setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
         let s = sum + randomNumber;
 
-        if(s === 5){
-            setSum(s+53);
-        }
-        else if(s === 14){
-            setSum(s+35);
-        }
-        else if(s === 53){
-            setSum(s+19);
-        }
-        else if(s === 64){
-            setSum(s+19);
-        }
-        else{
-            setSum(s);
+        if(s <= 100){
+            if(s === 5){
+                setSum(s+53);
+            }
+            else if(s === 14){
+                setSum(s+35);
+            }
+            else if(s === 53){
+                setSum(s+19);
+            }
+            else if(s === 64){
+                setSum(s+19);
+            }
+            else{
+                setSum(s);
+            }
         }
         handleWin(s);
     }
