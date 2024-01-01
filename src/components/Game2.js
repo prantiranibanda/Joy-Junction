@@ -17,6 +17,8 @@ function Game2(){
     const [randomNumber4, setRandomNumber4] = useState(1);
     const [flag, setFlag] = useState(false);
     const [isWin, setIsWIn] = useState(false);
+    const [player, setPlayer] = useState("");
+    const [winner, setWinner] = useState(0);
 
     //array creation
     let arr = new Array();
@@ -103,11 +105,12 @@ function Game2(){
         )
     },[randomNumber1,randomNumber2,randomNumber3,randomNumber4,sum1, sum2, sum3, sum4])
     
-    function handleWin(s){
+    function handleWin(s,no){
         if(s === 100){
             setIsWIn(true);
             //console.log("Win");
             winclick();
+            setWinner(no);
         }
     }
 
@@ -175,7 +178,7 @@ function Game2(){
             }
             
         }
-        handleWin(s);
+        handleWin(s,1);
     }
 
     function func2(){
@@ -242,7 +245,7 @@ function Game2(){
             }
             
         }
-        handleWin(s);
+        handleWin(s,2);
     }
 
     function func3(){
@@ -309,7 +312,7 @@ function Game2(){
             }
             
         }
-        handleWin(s);
+        handleWin(s,3);
     }
 
     function func4(){
@@ -376,7 +379,7 @@ function Game2(){
             }
             
         }
-        handleWin(s);
+        handleWin(s,4);
     }
 
     function rollDice(){
@@ -389,18 +392,23 @@ function Game2(){
             func2();
             func3();
             func4();
+            setPlayer("Player1(Green)");
         }
         if((count % 4) === 0){
             func1();
+            setPlayer("Player2(Blue)");
         }
         if((count % 4) === 1){
             func2();
+            setPlayer("Player3(Yellow)");
         }
         if((count % 4) === 2){
             func3();
+            setPlayer("Player4(Red)");
         }
         if((count % 4) === 3){
             func4();
+            setPlayer("Player1(Green)");
         }
     }
     
@@ -416,7 +424,7 @@ function Game2(){
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
                 <div className="w-44 h-44 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
                 <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?"Click to roll":"start"}</button>
-                <div className="font-mono font-bold text-center text-5xl text-cyan-200 pb-10">{(isWin)?"Win..!!":"Goo..."}</div> 
+                <div className="font-mono font-bold text-center text-4xl text-cyan-200 pb-10">{(isWin)?`Winner: Player${winner}!!`:`Goo...${player}`}</div> 
             </div>
         </div>
     );
