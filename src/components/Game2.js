@@ -5,7 +5,7 @@ function Game2(){
     const [sum, setSum] = useState(0);
     const [randomNumber, setRandomNumber] = useState(1);
     const [flag, setFlag] = useState(false);
-
+    const [isWin, setIsWIn] = useState(false);
     let arr = new Array();
     let k=111;
     for(let i=0; i<10; i++){
@@ -50,7 +50,8 @@ function Game2(){
     },[randomNumber,sum])
     function handleWin(s){
         if(s === 100){
-            console.log("Win");
+            setIsWIn(true);
+            //console.log("Win");
         }
     }
     function rollDice(){
@@ -97,7 +98,8 @@ function Game2(){
             })}
             </div>
             <div className="w-9 h-9 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?"Click to roll":"start"}</button>    
+            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?"Click to roll":"start"}</button>
+            <div className={`${(isWin)?"":"hidden"}`}>Win</div>    
         </div>
         </div>
   );
