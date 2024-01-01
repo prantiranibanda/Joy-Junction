@@ -2,12 +2,19 @@ import { useEffect, useState } from "react";
 import win from '../audio/win.wav';
 import click from '../audio/click.mp3';
 
-let f = false;
+let f = [false, false, false, false];
+let count = -1;
 let wino = new Audio(win);
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(<img src="/dice.png" alt="dice" ></img>);
-    const [sum, setSum] = useState(0);
-    const [randomNumber, setRandomNumber] = useState(1);
+    const [sum1, setSum1] = useState(0);
+    const [sum2, setSum2] = useState(0);
+    const [sum3, setSum3] = useState(0);
+    const [sum4, setSum4] = useState(0);
+    const [randomNumber1, setRandomNumber1] = useState(1);
+    const [randomNumber2, setRandomNumber2] = useState(1);
+    const [randomNumber3, setRandomNumber3] = useState(1);
+    const [randomNumber4, setRandomNumber4] = useState(1);
     const [flag, setFlag] = useState(false);
     const [isWin, setIsWIn] = useState(false);
 
@@ -41,8 +48,11 @@ function Game2(){
         }
     }
     const [buttonArray1, setButtonArray1] = useState(arr);
+    const [buttonArray2, setButtonArray2] = useState(arr);
+    const [buttonArray3, setButtonArray3] = useState(arr);
+    const [buttonArray4, setButtonArray4] = useState(arr);
     let temp;
-
+    //let turn = [false, false, false, false];
 
     //Sound effects.......................
     function winclick(){
@@ -58,13 +68,40 @@ function Game2(){
         setButtonArray1(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum)?{...eachbutton, data: "rounded-full bg-green-700", isEqualToSum: true}:{...eachbutton}
+                    (eachbutton.id === sum1)?{...eachbutton, data: "rounded-full bg-green-700", isEqualToSum: true}:{...eachbutton}
                 )
                 // console.log(temp);
                 return temp;
             }    
         )
-    },[randomNumber,sum])
+        setButtonArray2(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum2)?{...eachbutton, data: "rounded-full bg-blue-700", isEqualToSum: true}:{...eachbutton}
+                )
+                // console.log(temp);
+                return temp;
+            }    
+        )
+        setButtonArray3(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum3)?{...eachbutton, data: "rounded-full bg-yellow-500", isEqualToSum: true}:{...eachbutton}
+                )
+                // console.log(temp);
+                return temp;
+            }    
+        )
+        setButtonArray4(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum4)?{...eachbutton, data: "rounded-full bg-red-600", isEqualToSum: true}:{...eachbutton}
+                )
+                // console.log(temp);
+                return temp;
+            }    
+        )
+    },[randomNumber1,randomNumber2,randomNumber3,randomNumber4,sum1, sum2, sum3, sum4])
     
     function handleWin(s){
         if(s === 100){
@@ -74,74 +111,291 @@ function Game2(){
         }
     }
 
-    function rollDice(){
-        playy();
-        setFlag(true);
-        console.log("f",f);
-        if(f === false){
+    function func1(){
+        if(f[0] === false){
             setButtonArray1(
                 (prev)=>{
                     temp = prev.map((eachbutton)=>
-                        (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                        (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                     )
                     // console.log(temp); 
                     return temp;
                 }
             )
         }
-        setRandomNumber(((Math.floor(Math.random() * 6))+1));
-        setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
-        let s = sum + randomNumber;
+        setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+        setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+        let s = sum1 + randomNumber1;
         if(s>100){
-            f = true;
-            console.log(f);
+            f[0] = true;
+            //console.log(f);
         }
         if(s <= 100){
-            if(f === true){
+            if(f[0] === true){
                 setButtonArray1(
                     (prev)=>{
                         temp = prev.map((eachbutton)=>
-                            (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                            (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                         )
                         // console.log(temp); 
                         return temp;
                     }
                 )
             }
-            f = false;
+            f[0] = false;
             if(s === 5){
-                setSum(s+53);
+                setSum1(s+53);
             }
             else if(s === 14){
-                setSum(s+35);
+                setSum1(s+35);
             }
             else if(s === 53){
-                setSum(s+19);
+                setSum1(s+19);
             }
             else if(s === 64){
-                setSum(s+19);
+                setSum1(s+19);
             }
             else if(s === 38){
-                setSum(s-18);
+                setSum1(s-18);
             }
             else if(s === 51){
-                setSum(s-41);
+                setSum1(s-41);
             }
             else if(s === 76){
-                setSum(s-22);
+                setSum1(s-22);
             }
             else if(s === 91){
-                setSum(s-18);
+                setSum1(s-18);
             }
             else if(s === 97){
-                setSum(s-36);
+                setSum1(s-36);
             }
             else{
-                setSum(s);
+                setSum1(s);
             }
             
         }
         handleWin(s);
+    }
+
+    function func2(){
+        if(f[1] === false){
+            setButtonArray2(
+                (prev)=>{
+                    temp = prev.map((eachbutton)=>
+                        (eachbutton.id === sum2)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                    )
+                    // console.log(temp); 
+                    return temp;
+                }
+            )
+        }
+        setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+        setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
+        let s = sum2 + randomNumber2;
+        if(s>100){
+            f[1] = true;
+            //console.log(f);
+        }
+        if(s <= 100){
+            if(f[1] === true){
+                setButtonArray2(
+                    (prev)=>{
+                        temp = prev.map((eachbutton)=>
+                            (eachbutton.id === sum2)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                        )
+                        // console.log(temp); 
+                        return temp;
+                    }
+                )
+            }
+            f[1] = false;
+            if(s === 5){
+                setSum2(s+53);
+            }
+            else if(s === 14){
+                setSum2(s+35);
+            }
+            else if(s === 53){
+                setSum2(s+19);
+            }
+            else if(s === 64){
+                setSum2(s+19);
+            }
+            else if(s === 38){
+                setSum2(s-18);
+            }
+            else if(s === 51){
+                setSum2(s-41);
+            }
+            else if(s === 76){
+                setSum2(s-22);
+            }
+            else if(s === 91){
+                setSum2(s-18);
+            }
+            else if(s === 97){
+                setSum2(s-36);
+            }
+            else{
+                setSum2(s);
+            }
+            
+        }
+        handleWin(s);
+    }
+
+    function func3(){
+        if(f[2] === false){
+            setButtonArray3(
+                (prev)=>{
+                    temp = prev.map((eachbutton)=>
+                        (eachbutton.id === sum3)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                    )
+                    // console.log(temp); 
+                    return temp;
+                }
+            )
+        }
+        setRandomNumber3(((Math.floor(Math.random() * 6))+1));
+        setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
+        let s = sum3 + randomNumber3;
+        if(s>100){
+            f[2] = true;
+            //console.log(f);
+        }
+        if(s <= 100){
+            if(f[2] === true){
+                setButtonArray3(
+                    (prev)=>{
+                        temp = prev.map((eachbutton)=>
+                            (eachbutton.id === sum3)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                        )
+                        // console.log(temp); 
+                        return temp;
+                    }
+                )
+            }
+            f[2] = false;
+            if(s === 5){
+                setSum3(s+53);
+            }
+            else if(s === 14){
+                setSum3(s+35);
+            }
+            else if(s === 53){
+                setSum3(s+19);
+            }
+            else if(s === 64){
+                setSum3(s+19);
+            }
+            else if(s === 38){
+                setSum3(s-18);
+            }
+            else if(s === 51){
+                setSum3(s-41);
+            }
+            else if(s === 76){
+                setSum3(s-22);
+            }
+            else if(s === 91){
+                setSum3(s-18);
+            }
+            else if(s === 97){
+                setSum3(s-36);
+            }
+            else{
+                setSum3(s);
+            }
+            
+        }
+        handleWin(s);
+    }
+
+    function func4(){
+        if(f[3] === false){
+            setButtonArray4(
+                (prev)=>{
+                    temp = prev.map((eachbutton)=>
+                        (eachbutton.id === sum4)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                    )
+                    // console.log(temp); 
+                    return temp;
+                }
+            )
+        }
+        setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+        setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+        let s = sum4 + randomNumber4;
+        if(s>100){
+            f[3] = true;
+            //console.log(f);
+        }
+        if(s <= 100){
+            if(f[3] === true){
+                setButtonArray4(
+                    (prev)=>{
+                        temp = prev.map((eachbutton)=>
+                            (eachbutton.id === sum4)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                        )
+                        // console.log(temp); 
+                        return temp;
+                    }
+                )
+            }
+            f[3] = false;
+            if(s === 5){
+                setSum4(s+53);
+            }
+            else if(s === 14){
+                setSum4(s+35);
+            }
+            else if(s === 53){
+                setSum4(s+19);
+            }
+            else if(s === 64){
+                setSum4(s+19);
+            }
+            else if(s === 38){
+                setSum4(s-18);
+            }
+            else if(s === 51){
+                setSum4(s-41);
+            }
+            else if(s === 76){
+                setSum4(s-22);
+            }
+            else if(s === 91){
+                setSum4(s-18);
+            }
+            else if(s === 97){
+                setSum4(s-36);
+            }
+            else{
+                setSum4(s);
+            }
+            
+        }
+        handleWin(s);
+    }
+
+    function rollDice(){
+        playy();
+        setFlag(true);
+        //console.log("f",f);
+        count++;
+        if((count % 4) === 0){
+            func1();
+        }
+        if((count % 4) === 1){
+            func2();
+        }
+        if((count % 4) === 2){
+            func3();
+        }
+        if((count % 4) === 3){
+            func4();
+        }
     }
     
     return (
@@ -149,7 +403,7 @@ function Game2(){
             <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-green-500 bg-auto bg-center">
                 <div className="grid grid-cols-10 h-[485px] w-[485px]">
                 {arr.map((ele, index)=>{
-                    return (<MyCell key={index} index={index} buttonArray1={buttonArray1}/>);
+                    return (<MyCell key={index} index={index} buttonArray1={buttonArray1} buttonArray2={buttonArray2} buttonArray3={buttonArray3} buttonArray4={buttonArray4}/>);
                 })}
                 </div>
             </div>
@@ -161,13 +415,17 @@ function Game2(){
         </div>
     );
 
-    function MyCell({index, buttonArray1}){
+    function MyCell({index, buttonArray1, buttonArray2, buttonArray3, buttonArray4}){
         return (
             <div className="flex justify-center items-center">
-                <div className={`h-5 w-5 ${(buttonArray1[index].isEqualToSum)?buttonArray1[index].data:buttonArray1[index].data}`}>{buttonArray1[index].id}</div>
-                {/* <div className={`h-5 w-5 ${(buttonArray[index].isEqualToSum)?buttonArray[index].data:buttonArray[index].data}`}>{buttonArray[index].id}</div>
-                <div className={`h-5 w-5 ${(buttonArray[index].isEqualToSum)?buttonArray[index].data:buttonArray[index].data}`}>{buttonArray[index].id}</div>
-                <div className={`h-5 w-5 ${(buttonArray[index].isEqualToSum)?buttonArray[index].data:buttonArray[index].data}`}>{buttonArray[index].id}</div> */}
+                <div className="flex flex-col">
+                    <div className={`h-5 w-5 ${(buttonArray1[index].isEqualToSum)?buttonArray1[index].data:buttonArray1[index].data}`}></div>
+                    <div className={`h-5 w-5 ${(buttonArray2[index].isEqualToSum)?buttonArray2[index].data:buttonArray2[index].data}`}></div>
+                </div>
+                <div className="flex flex-col">
+                    <div className={`h-5 w-5 ${(buttonArray3[index].isEqualToSum)?buttonArray3[index].data:buttonArray3[index].data}`}></div>
+                    <div className={`h-5 w-5 ${(buttonArray4[index].isEqualToSum)?buttonArray4[index].data:buttonArray4[index].data}`}></div>
+                </div>
             </div>
         );
     }
