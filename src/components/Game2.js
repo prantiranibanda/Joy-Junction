@@ -19,6 +19,7 @@ function Game2(){
     const [isWin, setIsWIn] = useState(false);
     const [player, setPlayer] = useState("");
     const [winner, setWinner] = useState(0);
+    const [rolling, setRolling] = useState("");
 
     //array creation
     let arr = new Array();
@@ -115,26 +116,9 @@ function Game2(){
     }
 
     function func1(){
-        if(f[0] === false){
-            setButtonArray1(
-                (prev)=>{
-                    temp = prev.map((eachbutton)=>
-                        (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                    )
-                    // console.log(temp); 
-                    return temp;
-                }
-            )
-        }
-        setRandomNumber1(((Math.floor(Math.random() * 6))+1));
-        setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
-        let s = sum1 + randomNumber1;
-        if(s>100){
-            f[0] = true;
-            //console.log(f);
-        }
-        if(s <= 100){
-            if(f[0] === true){
+        setTimeout(() => {
+            setRolling("Click to roll");
+            if(f[0] === false){
                 setButtonArray1(
                     (prev)=>{
                         temp = prev.map((eachbutton)=>
@@ -145,44 +129,66 @@ function Game2(){
                     }
                 )
             }
-            f[0] = false;
-            if(s === 5){
-                setSum1(s+53);
+            setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+            setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+            let s = sum1 + randomNumber1;
+            if(s>100){
+                f[0] = true;
+                //console.log(f);
             }
-            else if(s === 14){
-                setSum1(s+35);
+            if(s <= 100){
+                if(f[0] === true){
+                    setButtonArray1(
+                        (prev)=>{
+                            temp = prev.map((eachbutton)=>
+                                (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                            )
+                            // console.log(temp); 
+                            return temp;
+                        }
+                    )
+                }
+                f[0] = false;
+                if(s === 5){
+                    setSum1(s+53);
+                }
+                else if(s === 14){
+                    setSum1(s+35);
+                }
+                else if(s === 53){
+                    setSum1(s+19);
+                }
+                else if(s === 64){
+                    setSum1(s+19);
+                }
+                else if(s === 38){
+                    setSum1(s-18);
+                }
+                else if(s === 51){
+                    setSum1(s-41);
+                }
+                else if(s === 76){
+                    setSum1(s-22);
+                }
+                else if(s === 91){
+                    setSum1(s-18);
+                }
+                else if(s === 97){
+                    setSum1(s-36);
+                }
+                else{
+                    setSum1(s);
+                }
+                
             }
-            else if(s === 53){
-                setSum1(s+19);
-            }
-            else if(s === 64){
-                setSum1(s+19);
-            }
-            else if(s === 38){
-                setSum1(s-18);
-            }
-            else if(s === 51){
-                setSum1(s-41);
-            }
-            else if(s === 76){
-                setSum1(s-22);
-            }
-            else if(s === 91){
-                setSum1(s-18);
-            }
-            else if(s === 97){
-                setSum1(s-36);
-            }
-            else{
-                setSum1(s);
-            }
-            
-        }
-        handleWin(s,1);
+            handleWin(s,1);
+        }, 500);
     }
 
     function func2(){
-        if(f[1] === false){
+        setTimeout(() => {
+            setRolling("Click to roll");
+            if(f[1] === false){
             setButtonArray2(
                 (prev)=>{
                     temp = prev.map((eachbutton)=>
@@ -246,10 +252,13 @@ function Game2(){
             
         }
         handleWin(s,2);
+        }, 500);
     }
 
     function func3(){
-        if(f[2] === false){
+        setTimeout(() => {
+            setRolling("Click to roll");
+            if(f[2] === false){
             setButtonArray3(
                 (prev)=>{
                     temp = prev.map((eachbutton)=>
@@ -313,29 +322,13 @@ function Game2(){
             
         }
         handleWin(s,3);
+        }, 500);
     }
 
     function func4(){
-        if(f[3] === false){
-            setButtonArray4(
-                (prev)=>{
-                    temp = prev.map((eachbutton)=>
-                        (eachbutton.id === sum4)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                    )
-                    // console.log(temp); 
-                    return temp;
-                }
-            )
-        }
-        setRandomNumber4(((Math.floor(Math.random() * 6))+1));
-        setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
-        let s = sum4 + randomNumber4;
-        if(s>100){
-            f[3] = true;
-            //console.log(f);
-        }
-        if(s <= 100){
-            if(f[3] === true){
+        setTimeout(() => {
+            setRolling("Click to roll");
+            if(f[3] === false){
                 setButtonArray4(
                     (prev)=>{
                         temp = prev.map((eachbutton)=>
@@ -346,70 +339,93 @@ function Game2(){
                     }
                 )
             }
-            f[3] = false;
-            if(s === 5){
-                setSum4(s+53);
+            setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+            setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+            let s = sum4 + randomNumber4;
+            if(s>100){
+                f[3] = true;
+                //console.log(f);
             }
-            else if(s === 14){
-                setSum4(s+35);
+            if(s <= 100){
+                if(f[3] === true){
+                    setButtonArray4(
+                        (prev)=>{
+                            temp = prev.map((eachbutton)=>
+                                (eachbutton.id === sum4)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                            )
+                            // console.log(temp); 
+                            return temp;
+                        }
+                    )
+                }
+                f[3] = false;
+                if(s === 5){
+                    setSum4(s+53);
+                }
+                else if(s === 14){
+                    setSum4(s+35);
+                }
+                else if(s === 53){
+                    setSum4(s+19);
+                }
+                else if(s === 64){
+                    setSum4(s+19);
+                }
+                else if(s === 38){
+                    setSum4(s-18);
+                }
+                else if(s === 51){
+                    setSum4(s-41);
+                }
+                else if(s === 76){
+                    setSum4(s-22);
+                }
+                else if(s === 91){
+                    setSum4(s-18);
+                }
+                else if(s === 97){
+                    setSum4(s-36);
+                }
+                else{
+                    setSum4(s);
+                }
+                
             }
-            else if(s === 53){
-                setSum4(s+19);
-            }
-            else if(s === 64){
-                setSum4(s+19);
-            }
-            else if(s === 38){
-                setSum4(s-18);
-            }
-            else if(s === 51){
-                setSum4(s-41);
-            }
-            else if(s === 76){
-                setSum4(s-22);
-            }
-            else if(s === 91){
-                setSum4(s-18);
-            }
-            else if(s === 97){
-                setSum4(s-36);
-            }
-            else{
-                setSum4(s);
-            }
-            
-        }
-        handleWin(s,4);
+            handleWin(s,4);
+        }, 500);
     }
 
     function rollDice(){
         playy();
         setFlag(true);
-
-        count++;
-        if(count === -1){
-            func1();
-            func2();
-            func3();
-            func4();
-            setPlayer("Player1(Green)");
-        }
-        if((count % 4) === 0){
-            func1();
-            setPlayer("Player2(Blue)");
-        }
-        if((count % 4) === 1){
-            func2();
-            setPlayer("Player3(Yellow)");
-        }
-        if((count % 4) === 2){
-            func3();
-            setPlayer("Player4(Red)");
-        }
-        if((count % 4) === 3){
-            func4();
-            setPlayer("Player1(Green)");
-        }
+        setRolling("Click to roll")
+        setTimeout(() => {
+            setRolling("Rolling..")
+            count++;
+            if(count === -1){
+                func1();
+                func2();
+                func3();
+                func4();
+                setPlayer("Player1(Green)");
+            }
+            if((count % 4) === 0){
+                func1();
+                setPlayer("Player2(Blue)");
+            }
+            if((count % 4) === 1){
+                func2();
+                setPlayer("Player3(Yellow)");
+            }
+            if((count % 4) === 2){
+                func3();
+                setPlayer("Player4(Red)");
+            }
+            if((count % 4) === 3){
+                func4();
+                setPlayer("Player1(Green)");
+            }
+        }, 500);
     }
     
     return (
@@ -423,7 +439,7 @@ function Game2(){
             </div>
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
                 <div className="w-44 h-44 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?"Click to roll":"start"}</button>
+                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?rolling:"start"}</button>
                 <div className="font-mono font-bold text-center text-4xl text-cyan-200 pb-10">{(isWin)?`Winner: Player${winner}!!`:`Goo...${player}`}</div> 
             </div>
         </div>
