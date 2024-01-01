@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+let f = false;
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(<img src="/dice.png" alt="dice" ></img>);
     const [sum, setSum] = useState(0);
@@ -54,27 +54,41 @@ function Game2(){
             //console.log("Win");
         }
     }
-    let f = false;
+    
     function rollDice(){
         setFlag(true);
+        console.log("f",f);
         if(f === false){
-        setButtonArray(
-            (prev)=>{
-                temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                )
-                // console.log(temp); 
-                return temp;
-            }
-        )
+            setButtonArray(
+                (prev)=>{
+                    temp = prev.map((eachbutton)=>
+                        (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                    )
+                    // console.log(temp); 
+                    return temp;
+                }
+            )
         }
         setRandomNumber(((Math.floor(Math.random() * 6))+1));
         setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
         let s = sum + randomNumber;
         if(s>100){
             f = true;
+            console.log(f);
         }
         if(s <= 100){
+            if(f === true){
+                setButtonArray(
+                    (prev)=>{
+                        temp = prev.map((eachbutton)=>
+                            (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                        )
+                        // console.log(temp); 
+                        return temp;
+                    }
+                )
+            }
+            f = false;
             if(s === 5){
                 setSum(s+53);
             }
@@ -105,6 +119,7 @@ function Game2(){
             else{
                 setSum(s);
             }
+            
         }
         handleWin(s);
     }
