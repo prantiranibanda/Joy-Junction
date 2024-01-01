@@ -3,7 +3,7 @@ import win from '../audio/win.wav';
 import click from '../audio/click.mp3';
 
 let f = [false, false, false, false];
-let count = -1;
+let count = -2;
 let wino = new Audio(win);
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(<img src="/dice.png" alt="dice" ></img>);
@@ -382,8 +382,14 @@ function Game2(){
     function rollDice(){
         playy();
         setFlag(true);
-        //console.log("f",f);
+
         count++;
+        if(count === -1){
+            func1();
+            func2();
+            func3();
+            func4();
+        }
         if((count % 4) === 0){
             func1();
         }
