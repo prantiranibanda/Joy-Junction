@@ -1,16 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(null);
     const [sum, setSum] = useState(0);
-    // return(
-    //     <div className="flex flex-col justify-center items-center h-[80vh]">
-    //         <div className="w-56 h-56 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-    //         <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>Click to roll</button> 
-    //     </div>
-        
-    // );
-    
+    const [randomNumber, setRandomNumber] = useState(1);
+    const [flag, setFlag] = useState(false);
+
     let arr = new Array();
     let k=111;
         for(let i=0; i<10; i++){
@@ -41,33 +36,9 @@ function Game2(){
         }
     //console.log(arr);
     const [buttonArray, setButtonArray] = useState(arr);
-    let randomNumber,temp;
-
-    function handleFunc(temp){
-        // setButtonArray(
-        //     (prev)=>{
-        //         temp = prev.map((eachbutton)=>
-        //             (eachbutton.id === sum)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-        //         )
-        //         // console.log(temp); 
-        //         return temp;
-        //     }
-        // )
-        if(sum === 5){
-            setSum(sum + 53);
-            setButtonArray(
-                (prev)=>{
-                    temp = prev.map((eachbutton)=>
-                        (eachbutton.id === sum)?{...eachbutton, data: "rounded-full bg-green-400", isEqualToSum: true}:{...eachbutton}
-                    )
-                    // console.log(temp);
-                    return temp;
-                }    
-            ) 
-        }
+    let temp;
+    useEffect(()=>{
         
-    }
-    function move(){
         setButtonArray(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
@@ -76,12 +47,12 @@ function Game2(){
                 // console.log(temp);
                 return temp;
             }    
-        ) 
-        setTimeout(() => {
-            handleFunc(temp);
-        }, 200);
-    }
+        )
+    },[randomNumber,sum])
+
     function rollDice(){
+        //console.log("first",buttonArray);
+        
         setButtonArray(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
@@ -91,12 +62,13 @@ function Game2(){
                 return temp;
             }
         )
-
-        randomNumber = ((Math.floor(Math.random() * 6))+1);
-        setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
-        setSum(sum + randomNumber);
-         
-        
+        setRandomNumber((Math.floor(Math.random() * 6))+1);
+        setRandomDiceImg(<img src={(flag)?`/images/ds${randomNumber}.jpg`:`/dice.png`} alt={`dice${randomNumber}`}></img>);
+        let s = sum + randomNumber;
+        setSum(s);
+        if(sum === 2)
+            setFlag(true);
+        //console.log("last",buttonArray);
     }
     
     return (
@@ -104,12 +76,12 @@ function Game2(){
         <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-green-500 bg-auto bg-center">
             <div className="grid grid-cols-10 h-[485px] w-[485px]">
             {arr.map((ele, index)=>{
-                return (<MyCell index={index} buttonArray={buttonArray}/>);
+                return (<MyCell key={index} index={index} buttonArray={buttonArray}/>);
             })}
             </div>
             <div className="w-9 h-9 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>Click to roll</button>
-            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={move}>move</button>
+            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?"Click to roll":"start"}</button>
+            
         </div>
         </div>
   );
