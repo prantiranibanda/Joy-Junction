@@ -54,8 +54,10 @@ function Game2(){
             //console.log("Win");
         }
     }
+    let f = false;
     function rollDice(){
         setFlag(true);
+        if(f === false){
         setButtonArray(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
@@ -65,10 +67,13 @@ function Game2(){
                 return temp;
             }
         )
+        }
         setRandomNumber(((Math.floor(Math.random() * 6))+1));
         setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
         let s = sum + randomNumber;
-
+        if(s>100){
+            f = true;
+        }
         if(s <= 100){
             if(s === 5){
                 setSum(s+53);
