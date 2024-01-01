@@ -1,44 +1,43 @@
 import { useEffect, useState } from "react";
 
 function Game2(){
-    const [randomDiceImg, setRandomDiceImg] = useState(null);
+    const [randomDiceImg, setRandomDiceImg] = useState(<img src="/dice.png" alt="dice" ></img>);
     const [sum, setSum] = useState(0);
     const [randomNumber, setRandomNumber] = useState(1);
     const [flag, setFlag] = useState(false);
 
     let arr = new Array();
     let k=111;
-        for(let i=0; i<10; i++){
-            if((i%2) !== 0){
-                k = k-9;
+    for(let i=0; i<10; i++){
+        if((i%2) !== 0){
+            k = k-9;
+        }
+        else{
+            k = k-11;
+        }
+        for(let j=0; j<10; j++){
+            if((i%2) === 0){
+                arr.push({
+                    id: k,
+                    data: "",
+                    isEqualToSum: false,
+                });
+                k--;
             }
             else{
-                k = k-11;
-            }
-            for(let j=0; j<10; j++){
-                if((i%2) === 0){
-                    arr.push({
-                        id: k,
-                        data: "",
-                        isEqualToSum: false,
-                    });
-                    k--;
-                }
-                else{
-                    arr.push({
-                        id: k,
-                        data: "",
-                        isEqualToSum: false,
-                    });
-                    k++;
-                }
+                arr.push({
+                    id: k,
+                    data: "",
+                    isEqualToSum: false,
+                });
+                k++;
             }
         }
+    }
     //console.log(arr);
     const [buttonArray, setButtonArray] = useState(arr);
     let temp;
     useEffect(()=>{
-        
         setButtonArray(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
@@ -49,9 +48,12 @@ function Game2(){
             }    
         )
     },[randomNumber,sum])
-
+    function handleWin(s){
+        if(s === 100){
+            console.log("Win");
+        }
+    }
     function rollDice(){
-        //console.log("first",buttonArray);
         setFlag(true);
         setButtonArray(
             (prev)=>{
@@ -62,11 +64,26 @@ function Game2(){
                 return temp;
             }
         )
-        setRandomNumber((Math.floor(Math.random() * 6))+1);
-        setRandomDiceImg(<img src={(flag)?`/images/ds${randomNumber}.jpg`:`/dice.png`} alt={`dice${randomNumber}`}></img>);
+        setRandomNumber(((Math.floor(Math.random() * 6))+1));
+        setRandomDiceImg(<img src={`/images/ds${randomNumber}.jpg`} alt={`dice${randomNumber}`}></img>);
         let s = sum + randomNumber;
-        setSum(s);
-        //console.log("last",buttonArray);
+
+        if(s === 5){
+            setSum(s+53);
+        }
+        else if(s === 14){
+            setSum(s+35);
+        }
+        else if(s === 53){
+            setSum(s+19);
+        }
+        else if(s === 64){
+            setSum(s+19);
+        }
+        else{
+            setSum(s);
+        }
+        handleWin(s);
     }
     
     return (
@@ -78,8 +95,7 @@ function Game2(){
             })}
             </div>
             <div className="w-9 h-9 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?"Click to roll":"start"}</button>
-            
+            <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?"Click to roll":"start"}</button>    
         </div>
         </div>
   );
