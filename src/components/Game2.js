@@ -52,7 +52,7 @@ function Game2(){
 
     function rollDice(){
         //console.log("first",buttonArray);
-        
+        setFlag(true);
         setButtonArray(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
@@ -66,8 +66,6 @@ function Game2(){
         setRandomDiceImg(<img src={(flag)?`/images/ds${randomNumber}.jpg`:`/dice.png`} alt={`dice${randomNumber}`}></img>);
         let s = sum + randomNumber;
         setSum(s);
-        if(sum === 2)
-            setFlag(true);
         //console.log("last",buttonArray);
     }
     
