@@ -182,7 +182,7 @@ function Game2(){
                 
             }
             handleWin(s,1);
-        }, 500);
+        }, 3500);
     }
 
     function func2(){
@@ -252,7 +252,7 @@ function Game2(){
             
         }
         handleWin(s,2);
-        }, 500);
+        }, 3500);
     }
 
     function func3(){
@@ -322,7 +322,7 @@ function Game2(){
             
         }
         handleWin(s,3);
-        }, 500);
+        }, 3500);
     }
 
     function func4(){
@@ -392,7 +392,7 @@ function Game2(){
                 
             }
             handleWin(s,4);
-        }, 500);
+        }, 3500);
     }
 
     function rollDice(){
@@ -400,7 +400,8 @@ function Game2(){
         setFlag(true);
         setRolling("Click to roll")
         setTimeout(() => {
-            setRolling("Rolling..")
+            setRolling("🎲Rolling..")
+            setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             count++;
             if(count === -1){
                 func1();
