@@ -3,7 +3,8 @@ import win from '../audio/win.wav';
 import click from '../audio/click.mp3';
 
 let f = [false, false, false, false];
-let count = -2;
+let count = -1;
+let start = [false, false, false, false];
 let wino = new Audio(win);
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(<img src="/dice.png" alt="dice" ></img>);
@@ -15,11 +16,10 @@ function Game2(){
     const [randomNumber2, setRandomNumber2] = useState(1);
     const [randomNumber3, setRandomNumber3] = useState(1);
     const [randomNumber4, setRandomNumber4] = useState(1);
-    const [flag, setFlag] = useState(false);
     const [isWin, setIsWIn] = useState(false);
-    const [player, setPlayer] = useState("");
+    const [player, setPlayer] = useState("Player1(Green)");
     const [winner, setWinner] = useState(0);
-    const [rolling, setRolling] = useState("");
+    const [rolling, setRolling] = useState("Click to Roll");
 
     //array creation
     let arr = new Array();
@@ -397,19 +397,11 @@ function Game2(){
 
     function rollDice(){
         playy();
-        setFlag(true);
-        setRolling("Click to roll")
+        setRolling("Click to roll");
         setTimeout(() => {
-            setRolling("🎲Rolling..")
+            setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             count++;
-            if(count === -1){
-                func1();
-                func2();
-                func3();
-                func4();
-                setPlayer("Player1(Green)");
-            }
             if((count % 4) === 0){
                 func1();
                 setPlayer("Player2(Blue)");
@@ -440,7 +432,7 @@ function Game2(){
             </div>
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
                 <div className="w-44 h-44 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{(flag)?rolling:"start"}</button>
+                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{rolling}</button>
                 <div className="font-mono font-bold text-center text-4xl text-cyan-200 pb-10">{(isWin)?`Winner: Player${winner}!!`:`Goo...${player}`}</div> 
             </div>
         </div>
