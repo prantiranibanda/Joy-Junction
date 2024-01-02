@@ -412,53 +412,12 @@ function Game2(){
                     if(randomNumber1 !== 1){
                         start[0] = false;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
-                        // setRandomNumber1(((Math.floor(Math.random() * 6))+1));
                         setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
                         setRandomNumber1(((Math.floor(Math.random() * 6))+1));
-                        // let s = sum1 + randomNumber1;
-                        
-                        // if(s <= 100){
-                        //     if(f[0] === true){
-                        //         setButtonArray1(
-                        //             (prev)=>{
-                        //                 temp = prev.map((eachbutton)=>
-                        //                     (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //                 )
-                        //                 // console.log(temp); 
-                        //                 return temp;
-                        //             }
-                        //         )
-                        //     }
-                        //     f[0] = false;
-                        
-                            
-                        // }
                     }
                     else{
                         start[0] = true;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
                         setSum1(1);
                         setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
                         setRandomNumber1(((Math.floor(Math.random() * 6))+1));
@@ -473,86 +432,12 @@ function Game2(){
                     if(randomNumber2 !== 1){
                         start[1] = false;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
-                        // setRandomNumber1(((Math.floor(Math.random() * 6))+1));
                         setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
                         setRandomNumber2(((Math.floor(Math.random() * 6))+1));
-                        // let s = sum1 + randomNumber1;
-                        // if(s>100){
-                        //     f[0] = true;
-                        //     //console.log(f);
-                        // }
-                        // if(s <= 100){
-                        //     if(f[0] === true){
-                        //         setButtonArray1(
-                        //             (prev)=>{
-                        //                 temp = prev.map((eachbutton)=>
-                        //                     (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //                 )
-                        //                 // console.log(temp); 
-                        //                 return temp;
-                        //             }
-                        //         )
-                        //     }
-                        //     f[0] = false;
-                        //     if(s === 5){
-                        //         setSum1(s+53);
-                        //     }
-                        //     else if(s === 14){
-                        //         setSum1(s+35);
-                        //     }
-                        //     else if(s === 53){
-                        //         setSum1(s+19);
-                        //     }
-                        //     else if(s === 64){
-                        //         setSum1(s+19);
-                        //     }
-                        //     else if(s === 38){
-                        //         setSum1(s-18);
-                        //     }
-                        //     else if(s === 51){
-                        //         setSum1(s-41);
-                        //     }
-                        //     else if(s === 76){
-                        //         setSum1(s-22);
-                        //     }
-                        //     else if(s === 91){
-                        //         setSum1(s-18);
-                        //     }
-                        //     else if(s === 97){
-                        //         setSum1(s-36);
-                        //     }
-                        //     else{
-                        //         setSum1(s);
-                        //     }
-                            
-                        // }
-                        // handleWin(s,1);
                     }
                     else{
                         start[1] = true;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
                         setSum2(1);
                         setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
                         setRandomNumber2(((Math.floor(Math.random() * 6))+1));
@@ -560,93 +445,18 @@ function Game2(){
                     setPlayer("Player3(Yellow)");
                 }
                 else{func2();}
-                
             }
             if((count % 4) === 2){
                 if(start[2] === false){
                     if(randomNumber3 !== 1){
                         start[2] = false;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
-                        // setRandomNumber1(((Math.floor(Math.random() * 6))+1));
                         setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
                         setRandomNumber3(((Math.floor(Math.random() * 6))+1));
-                        // let s = sum1 + randomNumber1;
-                        // if(s>100){
-                        //     f[0] = true;
-                        //     //console.log(f);
-                        // }
-                        // if(s <= 100){
-                        //     if(f[0] === true){
-                        //         setButtonArray1(
-                        //             (prev)=>{
-                        //                 temp = prev.map((eachbutton)=>
-                        //                     (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //                 )
-                        //                 // console.log(temp); 
-                        //                 return temp;
-                        //             }
-                        //         )
-                        //     }
-                        //     f[0] = false;
-                        //     if(s === 5){
-                        //         setSum1(s+53);
-                        //     }
-                        //     else if(s === 14){
-                        //         setSum1(s+35);
-                        //     }
-                        //     else if(s === 53){
-                        //         setSum1(s+19);
-                        //     }
-                        //     else if(s === 64){
-                        //         setSum1(s+19);
-                        //     }
-                        //     else if(s === 38){
-                        //         setSum1(s-18);
-                        //     }
-                        //     else if(s === 51){
-                        //         setSum1(s-41);
-                        //     }
-                        //     else if(s === 76){
-                        //         setSum1(s-22);
-                        //     }
-                        //     else if(s === 91){
-                        //         setSum1(s-18);
-                        //     }
-                        //     else if(s === 97){
-                        //         setSum1(s-36);
-                        //     }
-                        //     else{
-                        //         setSum1(s);
-                        //     }
-                            
-                        // }
-                        // handleWin(s,1);
                     }
                     else{
                         start[2] = true;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
                         setSum3(1);
                         setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
                         setRandomNumber3(((Math.floor(Math.random() * 6))+1));
@@ -654,93 +464,18 @@ function Game2(){
                     setPlayer("Player4(Red)");
                 }
                 else{func3();}
-                
             }
             if((count % 4) === 3){
                 if(start[3] === false){
                     if(randomNumber4 !== 1){
                         start[3] = false;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
-                        // setRandomNumber1(((Math.floor(Math.random() * 6))+1));
                         setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
                         setRandomNumber4(((Math.floor(Math.random() * 6))+1));
-                        // let s = sum1 + randomNumber1;
-                        // if(s>100){
-                        //     f[0] = true;
-                        //     //console.log(f);
-                        // }
-                        // if(s <= 100){
-                        //     if(f[0] === true){
-                        //         setButtonArray1(
-                        //             (prev)=>{
-                        //                 temp = prev.map((eachbutton)=>
-                        //                     (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //                 )
-                        //                 // console.log(temp); 
-                        //                 return temp;
-                        //             }
-                        //         )
-                        //     }
-                        //     f[0] = false;
-                        //     if(s === 5){
-                        //         setSum1(s+53);
-                        //     }
-                        //     else if(s === 14){
-                        //         setSum1(s+35);
-                        //     }
-                        //     else if(s === 53){
-                        //         setSum1(s+19);
-                        //     }
-                        //     else if(s === 64){
-                        //         setSum1(s+19);
-                        //     }
-                        //     else if(s === 38){
-                        //         setSum1(s-18);
-                        //     }
-                        //     else if(s === 51){
-                        //         setSum1(s-41);
-                        //     }
-                        //     else if(s === 76){
-                        //         setSum1(s-22);
-                        //     }
-                        //     else if(s === 91){
-                        //         setSum1(s-18);
-                        //     }
-                        //     else if(s === 97){
-                        //         setSum1(s-36);
-                        //     }
-                        //     else{
-                        //         setSum1(s);
-                        //     }
-                            
-                        // }
-                        // handleWin(s,1);
                     }
                     else{
                         start[3] = true;
                         setRolling("Click to roll");
-                        // if(f[0] === false){
-                        //     setButtonArray1(
-                        //         (prev)=>{
-                        //             temp = prev.map((eachbutton)=>
-                        //                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
-                        //             )
-                        //             // console.log(temp); 
-                        //             return temp;
-                        //         }
-                        //     )
-                        // }
                         setSum4(1);
                         setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
                         setRandomNumber4(((Math.floor(Math.random() * 6))+1));
@@ -748,7 +483,6 @@ function Game2(){
                     setPlayer("Player1(Green)");
                 }
                 else{func4();}
-                
             }
         }, 500);
     }
