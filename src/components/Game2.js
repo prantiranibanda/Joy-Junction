@@ -21,7 +21,7 @@ function Game2(){
     const [winner, setWinner] = useState(0);
     const [rolling, setRolling] = useState("Click to Roll");
 
-    //array creation
+    //array creatio
     let arr = new Array();
     let k=111;
     for(let i=0; i<10; i++){
