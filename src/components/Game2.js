@@ -957,7 +957,25 @@ function Game2(){
     }
 
     function rollDice2(){
+        if(isWinnerRemoved[0] === true && isWinnerRemoved[1] === true && isWinnerRemoved[2] === false && isWinnerRemoved[3] === false){
 
+        }
+        if(isWinnerRemoved[0] === true && isWinnerRemoved[1] === false && isWinnerRemoved[2] === true && isWinnerRemoved[3] === false){
+
+        }
+        if(isWinnerRemoved[0] === true && isWinnerRemoved[1] === false && isWinnerRemoved[2] === false && isWinnerRemoved[3] === true){
+
+        }
+        //gggggggg
+        if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === true && isWinnerRemoved[2] === true && isWinnerRemoved[3] === false){
+
+        }
+        if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === true && isWinnerRemoved[2] === false && isWinnerRemoved[3] === true){
+
+        }
+        if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === false && isWinnerRemoved[2] === true && isWinnerRemoved[3] === true){
+
+        }
     }
 
     return (
