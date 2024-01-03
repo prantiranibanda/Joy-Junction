@@ -531,12 +531,12 @@ function Game2(){
     }
     
     function rollDice1(){
+        playy();
+        setIsWin(false);
+        setRolling("Click to Roll");
+        setTimeout(() => {
         if(isWinnerRemoved[0] === true && isWinnerRemoved[1] === false && isWinnerRemoved[2] === false && isWinnerRemoved[3] === false){
-            console.log("1",player,ct3,count);
-            playy();
-            setIsWin(false);
-            setRolling("Click to Roll");
-            setTimeout(() => {
+            
                 setRolling("🎲Rolling...")
                 setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
                 
@@ -628,14 +628,9 @@ function Game2(){
                         setPlayer("Player2(Blue)");
                     }
                 }
-            }, 500);
+            
         }
         if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === true && isWinnerRemoved[2] === false && isWinnerRemoved[3] === false){
-            console.log("2",player,ct3,count);
-            playy();
-            setIsWin(false);
-            setRolling("Click to Roll");
-            setTimeout(() => {
             setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             
@@ -729,14 +724,9 @@ function Game2(){
                     setPlayer("Player1(Green)");
                 }
             }
-            }, 500);
+            
         }
         if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === false && isWinnerRemoved[2] === true && isWinnerRemoved[3] === false){
-            console.log("3",player,ct3,count);
-            playy();
-            setIsWin(false);
-            setRolling("Click to Roll");
-            setTimeout(() => {
                 setRolling("🎲Rolling...")
                 setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
                 
@@ -831,14 +821,9 @@ function Game2(){
                         setPlayer("Player1(Green)");
                     }
                 }
-            }, 500);
+            
         }
         if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === false && isWinnerRemoved[2] === false && isWinnerRemoved[3] === true){
-            console.log("4",player,ct3,count);
-            playy();
-            setIsWin(false);
-            setRolling("Click to Roll");
-            setTimeout(() => {
             setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             
@@ -932,8 +917,8 @@ function Game2(){
                     setPlayer("Player1(Green)");
                 }
             }
-            }, 500);
         }
+        },500);
     }
 
     return (
