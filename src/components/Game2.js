@@ -530,7 +530,7 @@ function Game2(){
         }, 500);
     }
     
-    function rollDice1(){
+    function rollDice3(){
         playy();
         setIsWin(false);
         setRolling("Click to Roll");
@@ -956,6 +956,10 @@ function Game2(){
         },500);
     }
 
+    function rollDice2(){
+
+    }
+
     return (
         <div className="flex justify-evenly items-center h-[80vh]">
             <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-green-500 bg-auto bg-center">
@@ -967,7 +971,7 @@ function Game2(){
             </div>
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
                 <div className="w-44 h-44 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={(ct === 4)? rollDice : rollDice1}>{rolling}</button>
+                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
                 <div className="font-mono font-bold text-center text-4xl text-cyan-200 pb-10">{(isWin)?`Winner: Player${winner}!!`:`Goo...${player}`}</div> 
             </div>
         </div>
