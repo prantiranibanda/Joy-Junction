@@ -4,7 +4,8 @@ import click from '../audio/click.mp3';
 
 let f = [false, false, false, false];
 let count = -1;
-let ct = 4;
+let ct = 4; //contolls rolldice 1 2 3
+let ct3 = 2;
 let start = [false, false, false, false];
 let isWinnerRemoved = [false, false, false, false];
 let wino = new Audio(win);
@@ -165,27 +166,27 @@ function Game2(){
                 else if(s === 64){
                     setSum1(s+19);
                 }
-                else if(s === 38){
-                    setSum1(s-18);
-                }
-                else if(s === 51){
-                    setSum1(s-41);
-                }
-                else if(s === 76){
-                    setSum1(s-22);
-                }
-                else if(s === 91){
-                    setSum1(s-18);
-                }
-                else if(s === 97){
-                    setSum1(s-36);
-                }
+                // else if(s === 38){
+                //     setSum1(s-18);
+                // }
+                // else if(s === 51){
+                //     setSum1(s-41);
+                // }
+                // else if(s === 76){
+                //     setSum1(s-22);
+                // }
+                // else if(s === 91){
+                //     setSum1(s-18);
+                // }
+                // else if(s === 97){
+                //     setSum1(s-36);
+                // }
                 else{
                     setSum1(s);
                 }
                 
             }
-            setPlayer("Player2(Blue)");
+            //setPlayer("Player2(Blue)");
             handleWin(s,1);
         }, 1000);
     }
@@ -236,27 +237,27 @@ function Game2(){
             else if(s === 64){
                 setSum2(s+19);
             }
-            else if(s === 38){
-                setSum2(s-18);
-            }
-            else if(s === 51){
-                setSum2(s-41);
-            }
-            else if(s === 76){
-                setSum2(s-22);
-            }
-            else if(s === 91){
-                setSum2(s-18);
-            }
-            else if(s === 97){
-                setSum2(s-36);
-            }
+            // else if(s === 38){
+            //     setSum2(s-18);
+            // }
+            // else if(s === 51){
+            //     setSum2(s-41);
+            // }
+            // else if(s === 76){
+            //     setSum2(s-22);
+            // }
+            // else if(s === 91){
+            //     setSum2(s-18);
+            // }
+            // else if(s === 97){
+            //     setSum2(s-36);
+            // }
             else{
                 setSum2(s);
             }
             
         }
-        setPlayer("Player3(Yellow)");
+        //setPlayer("Player3(Yellow)");
         handleWin(s,2);
         }, 1000);
     }
@@ -307,27 +308,27 @@ function Game2(){
             else if(s === 64){
                 setSum3(s+19);
             }
-            else if(s === 38){
-                setSum3(s-18);
-            }
-            else if(s === 51){
-                setSum3(s-41);
-            }
-            else if(s === 76){
-                setSum3(s-22);
-            }
-            else if(s === 91){
-                setSum3(s-18);
-            }
-            else if(s === 97){
-                setSum3(s-36);
-            }
+            // else if(s === 38){
+            //     setSum3(s-18);
+            // }
+            // else if(s === 51){
+            //     setSum3(s-41);
+            // }
+            // else if(s === 76){
+            //     setSum3(s-22);
+            // }
+            // else if(s === 91){
+            //     setSum3(s-18);
+            // }
+            // else if(s === 97){
+            //     setSum3(s-36);
+            // }
             else{
                 setSum3(s);
             }
             
         }
-        setPlayer("Player4(Red)");
+        //setPlayer("Player4(Red)");
         handleWin(s,3);
         }, 1000);
     }
@@ -378,27 +379,27 @@ function Game2(){
                 else if(s === 64){
                     setSum4(s+19);
                 }
-                else if(s === 38){
-                    setSum4(s-18);
-                }
-                else if(s === 51){
-                    setSum4(s-41);
-                }
-                else if(s === 76){
-                    setSum4(s-22);
-                }
-                else if(s === 91){
-                    setSum4(s-18);
-                }
-                else if(s === 97){
-                    setSum4(s-36);
-                }
+                // else if(s === 38){
+                //     setSum4(s-18);
+                // }
+                // else if(s === 51){
+                //     setSum4(s-41);
+                // }
+                // else if(s === 76){
+                //     setSum4(s-22);
+                // }
+                // else if(s === 91){
+                //     setSum4(s-18);
+                // }
+                // else if(s === 97){
+                //     setSum4(s-36);
+                // }
                 else{
                     setSum4(s);
                 }
                 
             }
-            setPlayer("Player1(Green)");
+            //setPlayer("Player1(Green)");
             handleWin(s,4);
         }, 1000);
     }
@@ -436,7 +437,10 @@ function Game2(){
                     }
                     
                 }
-                else{func1();}
+                else{
+                    func1();
+                    setPlayer("Player2(Blue)");
+                }
                 }
             }
             if((count % 4) === 1){
@@ -462,7 +466,10 @@ function Game2(){
                     }
                     
                 }
-                else{func2();}
+                else{
+                    func2();
+                    setPlayer("Player3(Yellow)");
+                }
             }
             if((count % 4) === 2){
                 if(start[2] === false){
@@ -487,7 +494,10 @@ function Game2(){
                     }
                     
                 }
-                else{func3();}
+                else{
+                    func3();
+                    setPlayer("Player4(Red)");
+                }
             }
             if((count % 4) === 3){
                 if(start[3] === false){
@@ -512,13 +522,17 @@ function Game2(){
                     }
                     
                 }
-                else{func4();}
+                else{
+                    func4();
+                    setPlayer("Player1(Green)");
+                }
             }
         }, 500);
     }
     
     function rollDice1(){
         if(isWinnerRemoved[0] === true && isWinnerRemoved[1] === false && isWinnerRemoved[2] === false && isWinnerRemoved[3] === false){
+            console.log("1",player,ct3,count);
             playy();
             setIsWin(false);
             setRolling("Click to Roll");
@@ -526,8 +540,8 @@ function Game2(){
                 setRolling("🎲Rolling...")
                 setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
                 
-                count++;
-                if((count % 3) === 2){
+                ct3++;
+                if((ct3 % 3) === 0){
                     if(start[1] === false){
                         if(randomNumber2 !== 1){
                             setTimeout(() => {
@@ -546,13 +560,17 @@ function Game2(){
                                 setPlayer("Player3(Yellow)");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
                                 setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                                console.log("1",player,ct3,"--------------");
                             }, 1000);
                         }
                         
                     }
-                    else{func2();}
+                    else{
+                        func2();
+                        setPlayer("Player3(Yellow)");
+                    }
                 }
-                if((count % 3) === 0){
+                if((ct3 % 3) === 1){
                     if(start[2] === false){
                         if(randomNumber3 !== 1){
                             setTimeout(() => {
@@ -571,13 +589,17 @@ function Game2(){
                                 setPlayer("Player4(Red)");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
                                 setRandomNumber3(((Math.floor(Math.random() * 6))+1)); 
+                                console.log("1",player,ct3,"--------------");
                             }, 1000);
                         }
                         
                     }
-                    else{func3();}
+                    else{
+                        func3();
+                        setPlayer("Player4(Red)");
+                    }
                 }
-                if((count % 3) === 1){
+                if((ct3 % 3) === 2){
                     if(start[3] === false){
                         if(randomNumber4 !== 1){
                             setTimeout(() => {
@@ -596,15 +618,20 @@ function Game2(){
                                 setPlayer("Player2(Blue)");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
                                 setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                                console.log("1",player,ct3,"--------------");
                             }, 1000);
                         }
                         
                     }
-                    else{func4();}
+                    else{
+                        func4();
+                        setPlayer("Player2(Blue)");
+                    }
                 }
             }, 500);
         }
         if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === true && isWinnerRemoved[2] === false && isWinnerRemoved[3] === false){
+            console.log("2",player,ct3,count);
             playy();
             setIsWin(false);
             setRolling("Click to Roll");
@@ -612,8 +639,8 @@ function Game2(){
             setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             
-            count++;
-            if((count % 3) === 2){
+            ct3++;
+            if((ct3 % 3) === 2){
                 if(isWinnerRemoved[0] === false){
                 if(start[0] === false){
                     if(randomNumber1 !== 1){
@@ -633,14 +660,18 @@ function Game2(){
                             setPlayer("Player3(Yellow)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
                             setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                            console.log("2",player,ct3,"--------------");
                         }, 1000);
                     }
                     
                 }
-                else{func1();}
+                else{
+                    func1();
+                    setPlayer("Player3(Yellow)");
+                }
                 }
             }
-            if((count % 3) === 0){
+            if((ct3 % 3) === 0){
                 if(start[2] === false){
                     if(randomNumber3 !== 1){
                         setTimeout(() => {
@@ -659,13 +690,17 @@ function Game2(){
                             setPlayer("Player4(Red)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
                             setRandomNumber3(((Math.floor(Math.random() * 6))+1)); 
+                            console.log("2",player,ct3,"--------------");
                         }, 1000);
                     }
                     
                 }
-                else{func3();}
+                else{
+                    func3();
+                    setPlayer("Player4(Red)");
+                }
             }
-            if((count % 3) === 1){
+            if((ct3 % 3) === 1){
                 if(start[3] === false){
                     if(randomNumber4 !== 1){
                         setTimeout(() => {
@@ -684,15 +719,20 @@ function Game2(){
                             setPlayer("Player1(Green)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
                             setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                            console.log("2",player,ct3,"--------------");
                         }, 1000);
                     }
                     
                 }
-                else{func4();}
+                else{
+                    func4();
+                    setPlayer("Player1(Green)");
+                }
             }
             }, 500);
         }
         if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === false && isWinnerRemoved[2] === true && isWinnerRemoved[3] === false){
+            console.log("3",player,ct3,count);
             playy();
             setIsWin(false);
             setRolling("Click to Roll");
@@ -700,8 +740,9 @@ function Game2(){
                 setRolling("🎲Rolling...")
                 setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
                 
-                count++;
-                if((count % 3) === 2){
+                ct3++;
+                console.log("3",player,count,ct3);
+                if((ct3 % 3) === 1){
                     if(isWinnerRemoved[0] === false){
                     if(start[0] === false){
                         if(randomNumber1 !== 1){
@@ -721,14 +762,18 @@ function Game2(){
                                 setPlayer("Player2(Blue)");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
                                 setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                                
                             }, 1000);
                         }
-                        
+                        console.log("3",player,ct3,"--------------");
                     }
-                    else{func1();}
+                    else{
+                        func1();
+                        setPlayer("Player2(Blue)");
+                    }
                     }
                 }
-                if((count % 3) === 0){
+                if((ct3 % 3) === 2){
                     if(start[1] === false){
                         if(randomNumber2 !== 1){
                             setTimeout(() => {
@@ -747,13 +792,17 @@ function Game2(){
                                 setPlayer("Player4(Red)");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
                                 setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                                console.log("3",player,ct3,"--------------");
                             }, 1000);
                         }
                         
                     }
-                    else{func2();}
+                    else{
+                        func2();
+                        setPlayer("Player4(Red)");
+                    }
                 }
-                if((count % 3) === 1){
+                if((ct3 % 3) === 0){
                     if(start[3] === false){
                         if(randomNumber4 !== 1){
                             setTimeout(() => {
@@ -772,15 +821,20 @@ function Game2(){
                                 setPlayer("Player1(Green)");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
                                 setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                                console.log("3",player,ct3,"--------------");
                             }, 1000);
                         }
                         
                     }
-                    else{func4();}
+                    else{
+                        func4();
+                        setPlayer("Player1(Green)");
+                    }
                 }
             }, 500);
         }
         if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === false && isWinnerRemoved[2] === false && isWinnerRemoved[3] === true){
+            console.log("4",player,ct3,count);
             playy();
             setIsWin(false);
             setRolling("Click to Roll");
@@ -788,8 +842,8 @@ function Game2(){
             setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             
-            count++;
-            if((count % 3) === 2){
+            ct3++;
+            if((ct3 % 3) === 0){
                 if(isWinnerRemoved[0] === false){
                 if(start[0] === false){
                     if(randomNumber1 !== 1){
@@ -809,14 +863,18 @@ function Game2(){
                             setPlayer("Player2(Blue)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
                             setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                            
                         }, 1000);
                     }
-                    
+                    console.log("4",player,ct3,"--------------");
                 }
-                else{func1();}
+                else{
+                    func1();
+                    setPlayer("Player2(Blue)");
+                }
                 }
             }
-            if((count % 3) === 0){
+            if((ct3 % 3) === 1){
                 if(start[1] === false){
                     if(randomNumber2 !== 1){
                         setTimeout(() => {
@@ -835,13 +893,17 @@ function Game2(){
                             setPlayer("Player3(Yellow)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
                             setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                            
                         }, 1000);
                     }
-                    
+                    console.log("4",player,ct3,"--------------");
                 }
-                else{func2();}
+                else{
+                    func2();
+                    setPlayer("Player3(Yellow)");
+                }
             }
-            if((count % 3) === 1){
+            if((ct3 % 3) === 2){
                 if(start[2] === false){
                     if(randomNumber3 !== 1){
                         setTimeout(() => {
@@ -860,11 +922,15 @@ function Game2(){
                             setPlayer("Player1(Green)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
                             setRandomNumber3(((Math.floor(Math.random() * 6))+1)); 
+                            
                         }, 1000);
                     }
-                    
+                    console.log("4",player,ct3,"--------------");
                 }
-                else{func3();}
+                else{
+                    func3();
+                    setPlayer("Player1(Green)");
+                }
             }
             }, 500);
         }
