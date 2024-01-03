@@ -5,6 +5,7 @@ import click from '../audio/click.mp3';
 let f = [false, false, false, false];
 let count = -1;
 let start = [false, false, false, false];
+let isWinnerRemoved = [false, false, false, false];
 let wino = new Audio(win);
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(<img src="/dice.png" alt="dice" ></img>);
@@ -112,12 +113,13 @@ function Game2(){
             //console.log("Win");
             winclick();
             setWinner(no);
+            isWinnerRemoved[no-1] = true;
         }
     }
 
     function func1(){
         setTimeout(() => {
-            setRolling("Click to roll");
+            setRolling("Click to Roll");
             if(f[0] === false){
                 setButtonArray1(
                     (prev)=>{
@@ -188,7 +190,7 @@ function Game2(){
 
     function func2(){
         setTimeout(() => {
-            setRolling("Click to roll");
+            setRolling("Click to Roll");
             if(f[1] === false){
             setButtonArray2(
                 (prev)=>{
@@ -259,7 +261,7 @@ function Game2(){
 
     function func3(){
         setTimeout(() => {
-            setRolling("Click to roll");
+            setRolling("Click to Roll");
             if(f[2] === false){
             setButtonArray3(
                 (prev)=>{
@@ -330,7 +332,7 @@ function Game2(){
 
     function func4(){
         setTimeout(() => {
-            setRolling("Click to roll");
+            setRolling("Click to Roll");
             if(f[3] === false){
                 setButtonArray4(
                     (prev)=>{
@@ -409,11 +411,12 @@ function Game2(){
             
             count++;
             if((count % 4) === 0){
+                if(isWinnerRemoved[0] === false){
                 if(start[0] === false){
                     if(randomNumber1 !== 1){
                         setTimeout(() => {
                             start[0] = false;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setPlayer("Player2(Blue)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
                             setRandomNumber1(((Math.floor(Math.random() * 6))+1));
@@ -422,7 +425,7 @@ function Game2(){
                     else{
                         setTimeout(() => {
                             start[0] = true;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setSum1(1);
                             setPlayer("Player2(Blue)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
@@ -432,14 +435,14 @@ function Game2(){
                     
                 }
                 else{func1();}
-                
+                }
             }
             if((count % 4) === 1){
                 if(start[1] === false){
                     if(randomNumber2 !== 1){
                         setTimeout(() => {
                             start[1] = false;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setPlayer("Player3(Yellow)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
                             setRandomNumber2(((Math.floor(Math.random() * 6))+1));
@@ -448,7 +451,7 @@ function Game2(){
                     else{
                         setTimeout(() => {
                             start[1] = true;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setSum2(1);
                             setPlayer("Player3(Yellow)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
@@ -464,7 +467,7 @@ function Game2(){
                     if(randomNumber3 !== 1){
                         setTimeout(() => {
                             start[2] = false;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setPlayer("Player4(Red)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
                             setRandomNumber3(((Math.floor(Math.random() * 6))+1));
@@ -473,7 +476,7 @@ function Game2(){
                     else{
                         setTimeout(() => {
                             start[2] = true;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setSum3(1);
                             setPlayer("Player4(Red)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
@@ -489,7 +492,7 @@ function Game2(){
                     if(randomNumber4 !== 1){
                         setTimeout(() => {
                             start[3] = false;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setPlayer("Player1(Green)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
                             setRandomNumber4(((Math.floor(Math.random() * 6))+1));
@@ -498,7 +501,7 @@ function Game2(){
                     else{
                         setTimeout(() => {
                             start[3] = true;
-                            setRolling("Click to roll");
+                            setRolling("Click to Roll");
                             setSum4(1);
                             setPlayer("Player1(Green)");
                             setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
