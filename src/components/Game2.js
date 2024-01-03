@@ -567,7 +567,10 @@ function Game2(){
                     }
                     else{
                         func2();
-                        setPlayer("Player3(Yellow)");
+                        setTimeout(()=>{
+                            setPlayer("Player3(Yellow)");
+                        },1000);
+                        
                     }
                 }
                 if((ct3 % 3) === 1){
@@ -596,7 +599,10 @@ function Game2(){
                     }
                     else{
                         func3();
-                        setPlayer("Player4(Red)");
+                        
+                        setTimeout(()=>{
+                            setPlayer("Player4(Red)");
+                        },1000);
                     }
                 }
                 if((ct3 % 3) === 2){
@@ -625,7 +631,10 @@ function Game2(){
                     }
                     else{
                         func4();
-                        setPlayer("Player2(Blue)");
+                        
+                        setTimeout(()=>{
+                            setPlayer("Player2(Blue)");
+                        },1000);
                     }
                 }
             
@@ -662,7 +671,10 @@ function Game2(){
                 }
                 else{
                     func1();
-                    setPlayer("Player3(Yellow)");
+                    
+                    setTimeout(()=>{
+                        setPlayer("Player3(Yellow)");
+                    },1000);
                 }
                 }
             }
@@ -692,7 +704,10 @@ function Game2(){
                 }
                 else{
                     func3();
-                    setPlayer("Player4(Red)");
+                    
+                    setTimeout(()=>{
+                        setPlayer("Player4(Red)");
+                    },1000);
                 }
             }
             if((ct3 % 3) === 1){
@@ -721,7 +736,10 @@ function Game2(){
                 }
                 else{
                     func4();
-                    setPlayer("Player1(Green)");
+                    
+                    setTimeout(()=>{
+                        setPlayer("Player1(Green)");
+                    },1000);
                 }
             }
             
@@ -759,7 +777,10 @@ function Game2(){
                     }
                     else{
                         func1();
-                        setPlayer("Player2(Blue)");
+                        
+                        setTimeout(()=>{
+                            setPlayer("Player2(Blue)");
+                        },1000);
                     }
                     }
                 }
@@ -789,7 +810,10 @@ function Game2(){
                     }
                     else{
                         func2();
-                        setPlayer("Player4(Red)");
+                        
+                        setTimeout(()=>{
+                            setPlayer("Player4(Red)");
+                        },1000);
                     }
                 }
                 if((ct3 % 3) === 0){
@@ -818,7 +842,10 @@ function Game2(){
                     }
                     else{
                         func4();
-                        setPlayer("Player1(Green)");
+                        
+                        setTimeout(()=>{
+                            setPlayer("Player1(Green)");
+                        },1000);
                     }
                 }
             
@@ -855,7 +882,10 @@ function Game2(){
                 }
                 else{
                     func1();
-                    setPlayer("Player2(Blue)");
+                    
+                    setTimeout(()=>{
+                        setPlayer("Player2(Blue)");
+                    },1000);
                 }
                 }
             }
@@ -885,7 +915,9 @@ function Game2(){
                 }
                 else{
                     func2();
-                    setPlayer("Player3(Yellow)");
+                    setTimeout(()=>{
+                        setPlayer("Player3(Yellow)");
+                    },1000);
                 }
             }
             if((ct3 % 3) === 2){
@@ -914,7 +946,10 @@ function Game2(){
                 }
                 else{
                     func3();
-                    setPlayer("Player1(Green)");
+                    
+                    setTimeout(()=>{
+                        setPlayer("Player1(Green)");
+                    },1000);
                 }
             }
         }
