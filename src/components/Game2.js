@@ -4,6 +4,7 @@ import click from '../audio/click.mp3';
 
 let f = [false, false, false, false];
 let count = -1;
+let ct = 4;
 let start = [false, false, false, false];
 let isWinnerRemoved = [false, false, false, false];
 let wino = new Audio(win);
@@ -114,6 +115,7 @@ function Game2(){
             winclick();
             setWinner(no);
             isWinnerRemoved[no-1] = true;
+            ct--;
         }
     }
 
@@ -515,6 +517,359 @@ function Game2(){
         }, 500);
     }
     
+    function rollDice1(){
+        if(isWinnerRemoved[0] === true && isWinnerRemoved[1] === false && isWinnerRemoved[2] === false && isWinnerRemoved[3] === false){
+            playy();
+            setIsWin(false);
+            setRolling("Click to Roll");
+            setTimeout(() => {
+                setRolling("🎲Rolling...")
+                setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
+                
+                count++;
+                if((count % 3) === 2){
+                    if(start[1] === false){
+                        if(randomNumber2 !== 1){
+                            setTimeout(() => {
+                                start[1] = false;
+                                setRolling("Click to Roll");
+                                setPlayer("Player3(Yellow)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
+                                setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        else{
+                            setTimeout(() => {
+                                start[1] = true;
+                                setRolling("Click to Roll");
+                                setSum2(1);
+                                setPlayer("Player3(Yellow)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
+                                setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        
+                    }
+                    else{func2();}
+                }
+                if((count % 3) === 0){
+                    if(start[2] === false){
+                        if(randomNumber3 !== 1){
+                            setTimeout(() => {
+                                start[2] = false;
+                                setRolling("Click to Roll");
+                                setPlayer("Player4(Red)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
+                                setRandomNumber3(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        else{
+                            setTimeout(() => {
+                                start[2] = true;
+                                setRolling("Click to Roll");
+                                setSum3(1);
+                                setPlayer("Player4(Red)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
+                                setRandomNumber3(((Math.floor(Math.random() * 6))+1)); 
+                            }, 1000);
+                        }
+                        
+                    }
+                    else{func3();}
+                }
+                if((count % 3) === 1){
+                    if(start[3] === false){
+                        if(randomNumber4 !== 1){
+                            setTimeout(() => {
+                                start[3] = false;
+                                setRolling("Click to Roll");
+                                setPlayer("Player2(Blue)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+                                setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        else{
+                            setTimeout(() => {
+                                start[3] = true;
+                                setRolling("Click to Roll");
+                                setSum4(1);
+                                setPlayer("Player2(Blue)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+                                setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        
+                    }
+                    else{func4();}
+                }
+            }, 500);
+        }
+        if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === true && isWinnerRemoved[2] === false && isWinnerRemoved[3] === false){
+            playy();
+            setIsWin(false);
+            setRolling("Click to Roll");
+            setTimeout(() => {
+            setRolling("🎲Rolling...")
+            setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
+            
+            count++;
+            if((count % 3) === 2){
+                if(isWinnerRemoved[0] === false){
+                if(start[0] === false){
+                    if(randomNumber1 !== 1){
+                        setTimeout(() => {
+                            start[0] = false;
+                            setRolling("Click to Roll");
+                            setPlayer("Player3(Yellow)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+                            setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    else{
+                        setTimeout(() => {
+                            start[0] = true;
+                            setRolling("Click to Roll");
+                            setSum1(1);
+                            setPlayer("Player3(Yellow)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+                            setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    
+                }
+                else{func1();}
+                }
+            }
+            if((count % 3) === 0){
+                if(start[2] === false){
+                    if(randomNumber3 !== 1){
+                        setTimeout(() => {
+                            start[2] = false;
+                            setRolling("Click to Roll");
+                            setPlayer("Player4(Red)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
+                            setRandomNumber3(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    else{
+                        setTimeout(() => {
+                            start[2] = true;
+                            setRolling("Click to Roll");
+                            setSum3(1);
+                            setPlayer("Player4(Red)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
+                            setRandomNumber3(((Math.floor(Math.random() * 6))+1)); 
+                        }, 1000);
+                    }
+                    
+                }
+                else{func3();}
+            }
+            if((count % 3) === 1){
+                if(start[3] === false){
+                    if(randomNumber4 !== 1){
+                        setTimeout(() => {
+                            start[3] = false;
+                            setRolling("Click to Roll");
+                            setPlayer("Player1(Green)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+                            setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    else{
+                        setTimeout(() => {
+                            start[3] = true;
+                            setRolling("Click to Roll");
+                            setSum4(1);
+                            setPlayer("Player1(Green)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+                            setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    
+                }
+                else{func4();}
+            }
+            }, 500);
+        }
+        if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === false && isWinnerRemoved[2] === true && isWinnerRemoved[3] === false){
+            playy();
+            setIsWin(false);
+            setRolling("Click to Roll");
+            setTimeout(() => {
+                setRolling("🎲Rolling...")
+                setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
+                
+                count++;
+                if((count % 3) === 2){
+                    if(isWinnerRemoved[0] === false){
+                    if(start[0] === false){
+                        if(randomNumber1 !== 1){
+                            setTimeout(() => {
+                                start[0] = false;
+                                setRolling("Click to Roll");
+                                setPlayer("Player2(Blue)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+                                setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        else{
+                            setTimeout(() => {
+                                start[0] = true;
+                                setRolling("Click to Roll");
+                                setSum1(1);
+                                setPlayer("Player2(Blue)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+                                setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        
+                    }
+                    else{func1();}
+                    }
+                }
+                if((count % 3) === 0){
+                    if(start[1] === false){
+                        if(randomNumber2 !== 1){
+                            setTimeout(() => {
+                                start[1] = false;
+                                setRolling("Click to Roll");
+                                setPlayer("Player4(Red)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
+                                setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        else{
+                            setTimeout(() => {
+                                start[1] = true;
+                                setRolling("Click to Roll");
+                                setSum2(1);
+                                setPlayer("Player4(Red)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
+                                setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        
+                    }
+                    else{func2();}
+                }
+                if((count % 3) === 1){
+                    if(start[3] === false){
+                        if(randomNumber4 !== 1){
+                            setTimeout(() => {
+                                start[3] = false;
+                                setRolling("Click to Roll");
+                                setPlayer("Player1(Green)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+                                setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        else{
+                            setTimeout(() => {
+                                start[3] = true;
+                                setRolling("Click to Roll");
+                                setSum4(1);
+                                setPlayer("Player1(Green)");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber4}.jpg`} alt={`dice${randomNumber4}`}></img>);
+                                setRandomNumber4(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        
+                    }
+                    else{func4();}
+                }
+            }, 500);
+        }
+        if(isWinnerRemoved[0] === false && isWinnerRemoved[1] === false && isWinnerRemoved[2] === false && isWinnerRemoved[3] === true){
+            playy();
+            setIsWin(false);
+            setRolling("Click to Roll");
+            setTimeout(() => {
+            setRolling("🎲Rolling...")
+            setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
+            
+            count++;
+            if((count % 3) === 2){
+                if(isWinnerRemoved[0] === false){
+                if(start[0] === false){
+                    if(randomNumber1 !== 1){
+                        setTimeout(() => {
+                            start[0] = false;
+                            setRolling("Click to Roll");
+                            setPlayer("Player2(Blue)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+                            setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    else{
+                        setTimeout(() => {
+                            start[0] = true;
+                            setRolling("Click to Roll");
+                            setSum1(1);
+                            setPlayer("Player2(Blue)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber1}.jpg`} alt={`dice${randomNumber1}`}></img>);
+                            setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    
+                }
+                else{func1();}
+                }
+            }
+            if((count % 3) === 0){
+                if(start[1] === false){
+                    if(randomNumber2 !== 1){
+                        setTimeout(() => {
+                            start[1] = false;
+                            setRolling("Click to Roll");
+                            setPlayer("Player3(Yellow)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
+                            setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    else{
+                        setTimeout(() => {
+                            start[1] = true;
+                            setRolling("Click to Roll");
+                            setSum2(1);
+                            setPlayer("Player3(Yellow)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber2}.jpg`} alt={`dice${randomNumber2}`}></img>);
+                            setRandomNumber2(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    
+                }
+                else{func2();}
+            }
+            if((count % 3) === 1){
+                if(start[2] === false){
+                    if(randomNumber3 !== 1){
+                        setTimeout(() => {
+                            start[2] = false;
+                            setRolling("Click to Roll");
+                            setPlayer("Player1(Green)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
+                            setRandomNumber3(((Math.floor(Math.random() * 6))+1));
+                        }, 1000);
+                    }
+                    else{
+                        setTimeout(() => {
+                            start[2] = true;
+                            setRolling("Click to Roll");
+                            setSum3(1);
+                            setPlayer("Player1(Green)");
+                            setRandomDiceImg(<img src={`/images/ds${randomNumber3}.jpg`} alt={`dice${randomNumber3}`}></img>);
+                            setRandomNumber3(((Math.floor(Math.random() * 6))+1)); 
+                        }, 1000);
+                    }
+                    
+                }
+                else{func3();}
+            }
+            }, 500);
+        }
+    }
+
     return (
         <div className="flex justify-evenly items-center h-[80vh]">
             <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-green-500 bg-auto bg-center">
@@ -526,7 +881,7 @@ function Game2(){
             </div>
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
                 <div className="w-44 h-44 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={rollDice}>{rolling}</button>
+                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={(ct === 4)? rollDice : rollDice1}>{rolling}</button>
                 <div className="font-mono font-bold text-center text-4xl text-cyan-200 pb-10">{(isWin)?`Winner: Player${winner}!!`:`Goo...${player}`}</div> 
             </div>
         </div>
