@@ -12,7 +12,7 @@ function Home(){
                 </div>
                 <div className="flex flex-col justify-between w-80">
                     <img src="/diceghema.png" alt="dice" className="w-80 h-62 my-auto"/>
-                    <Link to="/game2"><Button button="Dice-Rolling"/></Link>
+                    <Link to="/game2"><Button button="Snake-Ladder"/></Link>
                 </div>
                 <Outlet/>
             </div>

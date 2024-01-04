@@ -11,7 +11,7 @@ let start = [false, false, false, false];
 let isWinnerRemoved = [false, false, false, false];
 let wino = new Audio(win);
 function Game2(){
-    const [randomDiceImg, setRandomDiceImg] = useState(<img src="/dice.png" alt="dice" ></img>);
+    const [randomDiceImg, setRandomDiceImg] = useState(<img src="/ds.png" alt="dice" ></img>);
     const [sum1, setSum1] = useState(0);
     const [sum2, setSum2] = useState(0);
     const [sum3, setSum3] = useState(0);
@@ -59,7 +59,6 @@ function Game2(){
     const [buttonArray3, setButtonArray3] = useState(arr);
     const [buttonArray4, setButtonArray4] = useState(arr);
     let temp;
-    //let turn = [false, false, false, false];
 
     //Sound effects.......................
     function winclick(){
@@ -1530,7 +1529,7 @@ function Game2(){
                 </div>
             </div>
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
-                <div className="w-52 h-52 rounded-lg text-white font-bold text-2xl bg-white">{randomDiceImg}</div>
+                <div className="w-52 h-52 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
                 <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
                 <div className="font-mono font-bold text-center text-4xl text-cyan-200 pb-10">{(isWin)?`Winner: Player${winner}!!`:`Goo...${player}`}</div> 
             </div>
