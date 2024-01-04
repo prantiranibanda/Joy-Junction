@@ -181,17 +181,15 @@ function Game2(){
                         temp = prev.map((eachbutton)=>
                             (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                         )
-                        // console.log(temp); 
                         return temp;
                     }
                 )
             }
             setRandomNumber1(((Math.floor(Math.random() * 6))+1));
             setRandomDiceImg(<img src={`/images/ds${randomNumber1}.png`} alt={`dice${randomNumber1}`}></img>);
-            let s = 100//sum1 + randomNumber1;
+            let s = sum1 + randomNumber1;
             if(s>100){
                 f[0] = true;
-                //console.log(f);
             }
             if(s <= 100){
                 if(f[0] === true){
@@ -200,7 +198,6 @@ function Game2(){
                             temp = prev.map((eachbutton)=>
                                 (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                             )
-                            // console.log(temp); 
                             return temp;
                         }
                     )
@@ -218,21 +215,21 @@ function Game2(){
                 else if(s === 64){
                     setSum1(s+19);
                 }
-                // else if(s === 38){
-                //     setSum1(s-18);
-                // }
-                // else if(s === 51){
-                //     setSum1(s-41);
-                // }
-                // else if(s === 76){
-                //     setSum1(s-22);
-                // }
-                // else if(s === 91){
-                //     setSum1(s-18);
-                // }
-                // else if(s === 97){
-                //     setSum1(s-36);
-                // }
+                else if(s === 38){
+                    setSum1(s-18);
+                }
+                else if(s === 51){
+                    setSum1(s-41);
+                }
+                else if(s === 76){
+                    setSum1(s-22);
+                }
+                else if(s === 91){
+                    setSum1(s-18);
+                }
+                else if(s === 97){
+                    setSum1(s-36);
+                }
                 else{
                     setSum1(s);
                 }
@@ -252,17 +249,15 @@ function Game2(){
                     temp = prev.map((eachbutton)=>
                         (eachbutton.id === sum2)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                     )
-                    // console.log(temp); 
                     return temp;
                 }
             )
         }
         setRandomNumber2(((Math.floor(Math.random() * 6))+1));
         setRandomDiceImg(<img src={`/images/ds${randomNumber2}.png`} alt={`dice${randomNumber2}`}></img>);
-        let s = 100//sum2 + randomNumber2;
+        let s = sum2 + randomNumber2;
         if(s>100){
             f[1] = true;
-            //console.log(f);
         }
         if(s <= 100){
             if(f[1] === true){
@@ -271,7 +266,6 @@ function Game2(){
                         temp = prev.map((eachbutton)=>
                             (eachbutton.id === sum2)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                         )
-                        // console.log(temp); 
                         return temp;
                     }
                 )
@@ -289,27 +283,26 @@ function Game2(){
             else if(s === 64){
                 setSum2(s+19);
             }
-            // else if(s === 38){
-            //     setSum2(s-18);
-            // }
-            // else if(s === 51){
-            //     setSum2(s-41);
-            // }
-            // else if(s === 76){
-            //     setSum2(s-22);
-            // }
-            // else if(s === 91){
-            //     setSum2(s-18);
-            // }
-            // else if(s === 97){
-            //     setSum2(s-36);
-            // }
+            else if(s === 38){
+                setSum2(s-18);
+            }
+            else if(s === 51){
+                setSum2(s-41);
+            }
+            else if(s === 76){
+                setSum2(s-22);
+            }
+            else if(s === 91){
+                setSum2(s-18);
+            }
+            else if(s === 97){
+                setSum2(s-36);
+            }
             else{
                 setSum2(s);
             }
             
         }
-        //setPlayer("Yellow's turn");
         handleWin(s,2);
         }, 1000);
     }
@@ -323,17 +316,15 @@ function Game2(){
                     temp = prev.map((eachbutton)=>
                         (eachbutton.id === sum3)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                     )
-                    // console.log(temp); 
                     return temp;
                 }
             )
         }
         setRandomNumber3(((Math.floor(Math.random() * 6))+1));
         setRandomDiceImg(<img src={`/images/ds${randomNumber3}.png`} alt={`dice${randomNumber3}`}></img>);
-        let s = 100//sum3 + randomNumber3;
+        let s = sum3 + randomNumber3;
         if(s>100){
             f[2] = true;
-            //console.log(f);
         }
         if(s <= 100){
             if(f[2] === true){
@@ -342,7 +333,6 @@ function Game2(){
                         temp = prev.map((eachbutton)=>
                             (eachbutton.id === sum3)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                         )
-                        // console.log(temp); 
                         return temp;
                     }
                 )
@@ -360,27 +350,25 @@ function Game2(){
             else if(s === 64){
                 setSum3(s+19);
             }
-            // else if(s === 38){
-            //     setSum3(s-18);
-            // }
-            // else if(s === 51){
-            //     setSum3(s-41);
-            // }
-            // else if(s === 76){
-            //     setSum3(s-22);
-            // }
-            // else if(s === 91){
-            //     setSum3(s-18);
-            // }
-            // else if(s === 97){
-            //     setSum3(s-36);
-            // }
+            else if(s === 38){
+                setSum3(s-18);
+            }
+            else if(s === 51){
+                setSum3(s-41);
+            }
+            else if(s === 76){
+                setSum3(s-22);
+            }
+            else if(s === 91){
+                setSum3(s-18);
+            }
+            else if(s === 97){
+                setSum3(s-36);
+            }
             else{
                 setSum3(s);
             }
-            
         }
-        //setPlayer("Red's turn");
         handleWin(s,3);
         }, 1000);
     }
@@ -394,17 +382,15 @@ function Game2(){
                         temp = prev.map((eachbutton)=>
                             (eachbutton.id === sum4)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                         )
-                        // console.log(temp); 
                         return temp;
                     }
                 )
             }
             setRandomNumber4(((Math.floor(Math.random() * 6))+1));
             setRandomDiceImg(<img src={`/images/ds${randomNumber4}.png`} alt={`dice${randomNumber4}`}></img>);
-            let s = 100//sum4 + randomNumber4;
+            let s = sum4 + randomNumber4;
             if(s>100){
                 f[3] = true;
-                //console.log(f);
             }
             if(s <= 100){
                 if(f[3] === true){
@@ -413,7 +399,6 @@ function Game2(){
                             temp = prev.map((eachbutton)=>
                                 (eachbutton.id === sum4)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
                             )
-                            // console.log(temp); 
                             return temp;
                         }
                     )
@@ -431,27 +416,25 @@ function Game2(){
                 else if(s === 64){
                     setSum4(s+19);
                 }
-                // else if(s === 38){
-                //     setSum4(s-18);
-                // }
-                // else if(s === 51){
-                //     setSum4(s-41);
-                // }
-                // else if(s === 76){
-                //     setSum4(s-22);
-                // }
-                // else if(s === 91){
-                //     setSum4(s-18);
-                // }
-                // else if(s === 97){
-                //     setSum4(s-36);
-                // }
+                else if(s === 38){
+                    setSum4(s-18);
+                }
+                else if(s === 51){
+                    setSum4(s-41);
+                }
+                else if(s === 76){
+                    setSum4(s-22);
+                }
+                else if(s === 91){
+                    setSum4(s-18);
+                }
+                else if(s === 97){
+                    setSum4(s-36);
+                }
                 else{
                     setSum4(s);
                 }
-                
             }
-            //setPlayer("Green's turn");
             handleWin(s,4);
         }, 1000);
     }
