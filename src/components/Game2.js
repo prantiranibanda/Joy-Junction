@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import win from '../audio/win.wav';
 import click from '../audio/click.mp3';
-import Restart from "./Restart";
 
 let ct4 = -1;
 let ct = 4; //used to reduce the no of dice to call function rollDice, rollDice3, rollDice2 
@@ -77,7 +76,7 @@ function Game2(){
         setButtonArray1(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum1)?{...eachbutton, data: "rounded-full bg-green-700", isEqualToSum: true}:{...eachbutton}
+                    (eachbutton.id === sum1)?{...eachbutton, data: "rounded-full bg-green-700 border-2 border-black", isEqualToSum: true}:{...eachbutton}
                 )
                 // console.log(temp);
                 return temp;
@@ -86,7 +85,7 @@ function Game2(){
         setButtonArray2(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum2)?{...eachbutton, data: "rounded-full bg-blue-700", isEqualToSum: true}:{...eachbutton}
+                    (eachbutton.id === sum2)?{...eachbutton, data: "rounded-full bg-blue-700 border-2 border-black", isEqualToSum: true}:{...eachbutton}
                 )
                 // console.log(temp);
                 return temp;
@@ -95,7 +94,7 @@ function Game2(){
         setButtonArray3(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum3)?{...eachbutton, data: "rounded-full bg-yellow-500", isEqualToSum: true}:{...eachbutton}
+                    (eachbutton.id === sum3)?{...eachbutton, data: "rounded-full bg-yellow-500 border-2 border-black", isEqualToSum: true}:{...eachbutton}
                 )
                 // console.log(temp);
                 return temp;
@@ -104,7 +103,7 @@ function Game2(){
         setButtonArray4(
             (prev)=>{
                 temp = prev.map((eachbutton)=>
-                    (eachbutton.id === sum4)?{...eachbutton, data: "rounded-full bg-red-600", isEqualToSum: true}:{...eachbutton}
+                    (eachbutton.id === sum4)?{...eachbutton, data: "rounded-full bg-red-600 border-2 border-black", isEqualToSum: true}:{...eachbutton}
                 )
                 // console.log(temp);
                 return temp;
@@ -1610,30 +1609,42 @@ function Game2(){
     }
 
     return (
-        <div className="flex justify-evenly items-center h-[80vh]">
-            <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-orange-600 bg-auto bg-center">
-                <div className="grid grid-cols-10 h-[485px] w-[485px]">
-                {arr.map((ele, index)=>{
-                    return (<MyCell key={index} index={index} buttonArray1={buttonArray1} buttonArray2={buttonArray2} buttonArray3={buttonArray3} buttonArray4={buttonArray4}/>);
-                })}
+        <div className="flex justify-center items-end h-[77vh] space-x-2">
+            <div className="flex justify-center rounded border-2 border-black p-2 bg-white w-16 h-16">
+                <div className="flex flex-col">
+                    <div className={(start[0] === false)?`h-5 w-5 rounded-full bg-green-700 border-2 border-black`:"hidden"}></div>
+                    <div className={(start[1] === false)?`h-5 w-5 rounded-full bg-blue-700 border-2 border-black`:"hidden"}></div>
+                </div>
+                <div className="flex flex-col">
+                    <div className={(start[2] === false)?`h-5 w-5 rounded-full bg-yellow-500 border-2 border-black`:"hidden"}></div>
+                    <div className={(start[3] === false)?`h-5 w-5 rounded-full bg-red-600 border-2 border-black`:"hidden"}></div>
                 </div>
             </div>
-            <div>
-                <div className={(result)?"hidden":"bg-[#ffed7a] flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-xl border-4 border-yellow-500"}>   
-                    <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                    <button className="w-48 bg-orange-400 border-2 border-white text-xl font-bold text-center text-white px-6 py-3 rounded-lg shadow-lg shadow-orange-600/40 hover:shadow-xl hover:shadow-pink-700/40" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
-                    <div className="font-bold text-center text-4xl text-cyan-500">{(isWin)?`${winner}`:`${player}`}</div> 
-                    {/* restart button */}
-                    <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
-                </div> 
-                <div className={(result)?"flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-xl border-4 border-yellow-300":"hidden"}>
-                    <div className="font-bold text-center text-4xl text-cyan-400">Snake-Ladder Game</div>
-                    {
-                        resultArray.map((ele)=>{
-                            return <div className="text-2xl text-center bg-yellow-300 border-2 border-white rounded-lg my-3 font-bold text-[#fa02e1] w-80 px-5 py-3">{ele}</div>
-                        })
-                    }
-                    <button className="bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" onClick={restartHandle}>Restart</button>
+            <div className="flex space-x-10">
+                <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-orange-600 bg-auto bg-center">
+                    <div className="grid grid-cols-10 h-[485px] w-[485px]">
+                    {arr.map((ele, index)=>{
+                        return (<MyCell key={index} index={index} buttonArray1={buttonArray1} buttonArray2={buttonArray2} buttonArray3={buttonArray3} buttonArray4={buttonArray4}/>);
+                    })}
+                    </div>
+                </div>
+                <div>
+                    <div className={(result)?"hidden":"bg-[#ffed7a] flex flex-col justify-evenly items-center h-[485px] w-[485px] border-4 border-yellow-500"}>   
+                        <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
+                        <button className="w-48 bg-orange-400 border-2 border-white text-xl font-bold text-center text-white px-6 py-3 rounded-lg shadow-lg shadow-orange-600/40 hover:shadow-xl hover:shadow-pink-700/40" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
+                        <div className="font-bold text-center text-4xl text-cyan-500">{(isWin)?`${winner}`:`${player}`}</div> 
+                        {/* restart button */}
+                        <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
+                    </div> 
+                    <div className={(result)?"flex flex-col justify-evenly items-center h-[485px] w-[485px] border-4 border-yellow-300":"hidden"}>
+                        <div className="font-bold text-center text-4xl text-cyan-400">Snake-Ladder Game</div>
+                        {
+                            resultArray.map((ele)=>{
+                                return <div className="text-2xl text-center bg-yellow-300 border-2 border-white rounded-lg my-3 font-bold text-[#fa02e1] w-80 px-5 py-3">{ele}</div>
+                            })
+                        }
+                        <button className="bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" onClick={restartHandle}>Restart</button>
+                    </div>
                 </div>
             </div>
         </div>
