@@ -168,21 +168,21 @@ function Game2(){
                 else if(s === 64){
                     setSum1(s+19);
                 }
-                else if(s === 38){
-                    setSum1(s-18);
-                }
-                else if(s === 51){
-                    setSum1(s-41);
-                }
-                else if(s === 76){
-                    setSum1(s-22);
-                }
-                else if(s === 91){
-                    setSum1(s-18);
-                }
-                else if(s === 97){
-                    setSum1(s-36);
-                }
+                // else if(s === 38){
+                //     setSum1(s-18);
+                // }
+                // else if(s === 51){
+                //     setSum1(s-41);
+                // }
+                // else if(s === 76){
+                //     setSum1(s-22);
+                // }
+                // else if(s === 91){
+                //     setSum1(s-18);
+                // }
+                // else if(s === 97){
+                //     setSum1(s-36);
+                // }
                 else{
                     setSum1(s);
                 }
@@ -239,21 +239,21 @@ function Game2(){
             else if(s === 64){
                 setSum2(s+19);
             }
-            else if(s === 38){
-                setSum2(s-18);
-            }
-            else if(s === 51){
-                setSum2(s-41);
-            }
-            else if(s === 76){
-                setSum2(s-22);
-            }
-            else if(s === 91){
-                setSum2(s-18);
-            }
-            else if(s === 97){
-                setSum2(s-36);
-            }
+            // else if(s === 38){
+            //     setSum2(s-18);
+            // }
+            // else if(s === 51){
+            //     setSum2(s-41);
+            // }
+            // else if(s === 76){
+            //     setSum2(s-22);
+            // }
+            // else if(s === 91){
+            //     setSum2(s-18);
+            // }
+            // else if(s === 97){
+            //     setSum2(s-36);
+            // }
             else{
                 setSum2(s);
             }
@@ -310,21 +310,21 @@ function Game2(){
             else if(s === 64){
                 setSum3(s+19);
             }
-            else if(s === 38){
-                setSum3(s-18);
-            }
-            else if(s === 51){
-                setSum3(s-41);
-            }
-            else if(s === 76){
-                setSum3(s-22);
-            }
-            else if(s === 91){
-                setSum3(s-18);
-            }
-            else if(s === 97){
-                setSum3(s-36);
-            }
+            // else if(s === 38){
+            //     setSum3(s-18);
+            // }
+            // else if(s === 51){
+            //     setSum3(s-41);
+            // }
+            // else if(s === 76){
+            //     setSum3(s-22);
+            // }
+            // else if(s === 91){
+            //     setSum3(s-18);
+            // }
+            // else if(s === 97){
+            //     setSum3(s-36);
+            // }
             else{
                 setSum3(s);
             }
@@ -381,21 +381,21 @@ function Game2(){
                 else if(s === 64){
                     setSum4(s+19);
                 }
-                else if(s === 38){
-                    setSum4(s-18);
-                }
-                else if(s === 51){
-                    setSum4(s-41);
-                }
-                else if(s === 76){
-                    setSum4(s-22);
-                }
-                else if(s === 91){
-                    setSum4(s-18);
-                }
-                else if(s === 97){
-                    setSum4(s-36);
-                }
+                // else if(s === 38){
+                //     setSum4(s-18);
+                // }
+                // else if(s === 51){
+                //     setSum4(s-41);
+                // }
+                // else if(s === 76){
+                //     setSum4(s-22);
+                // }
+                // else if(s === 91){
+                //     setSum4(s-18);
+                // }
+                // else if(s === 97){
+                //     setSum4(s-36);
+                // }
                 else{
                     setSum4(s);
                 }
@@ -1582,7 +1582,7 @@ function Game2(){
                 <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
                 <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`Winner: Player${winner}!!`:`${player}`}</div> 
                 {/* restart button */}
-                <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>Restart</button>
+                <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
             </div>
         </div>
     );
