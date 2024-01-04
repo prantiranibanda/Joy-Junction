@@ -78,7 +78,6 @@ function Game2(){
                 temp = prev.map((eachbutton)=>
                     (eachbutton.id === sum1)?{...eachbutton, data: "rounded-full bg-green-700 border-2 border-black", isEqualToSum: true}:{...eachbutton}
                 )
-                // console.log(temp);
                 return temp;
             }    
         )
@@ -87,7 +86,6 @@ function Game2(){
                 temp = prev.map((eachbutton)=>
                     (eachbutton.id === sum2)?{...eachbutton, data: "rounded-full bg-blue-700 border-2 border-black", isEqualToSum: true}:{...eachbutton}
                 )
-                // console.log(temp);
                 return temp;
             }    
         )
@@ -96,7 +94,6 @@ function Game2(){
                 temp = prev.map((eachbutton)=>
                     (eachbutton.id === sum3)?{...eachbutton, data: "rounded-full bg-yellow-500 border-2 border-black", isEqualToSum: true}:{...eachbutton}
                 )
-                // console.log(temp);
                 return temp;
             }    
         )
@@ -1610,7 +1607,7 @@ function Game2(){
 
     return (
         <div className="flex justify-center items-end h-[77vh] space-x-2">
-            <div className="flex justify-center rounded border-2 border-black p-2 bg-white w-16 h-16">
+            <div className="flex justify-center items-center rounded border-2 border-black p-2 bg-white w-16 h-16">
                 <div className="flex flex-col">
                     <div className={(start[0] === false)?`h-5 w-5 rounded-full bg-green-700 border-2 border-black`:"hidden"}></div>
                     <div className={(start[1] === false)?`h-5 w-5 rounded-full bg-blue-700 border-2 border-black`:"hidden"}></div>
@@ -1652,7 +1649,7 @@ function Game2(){
 
     function MyCell({index, buttonArray1, buttonArray2, buttonArray3, buttonArray4}){
         return (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center border-b-2 border-e-2 border-black">
                 <div className="flex flex-col">
                     <div className={`h-5 w-5 ${(buttonArray1[index].isEqualToSum)?buttonArray1[index].data:buttonArray1[index].data}`}></div>
                     <div className={`h-5 w-5 ${(buttonArray2[index].isEqualToSum)?buttonArray2[index].data:buttonArray2[index].data}`}></div>
