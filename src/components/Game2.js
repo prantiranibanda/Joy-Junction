@@ -5,8 +5,8 @@ import Restart from "./Restart";
 
 let ct4 = -1;
 let ct = 4; //used to reduce the no of dice to call function rollDice, rollDice3, rollDice2 
-let ct3 = 2;
-let ct2 = 1;
+let ct3 = -1;
+let ct2 = -1;
 let f = [false, false, false, false];
 let start = [false, false, false, false];
 let isWinnerRemoved = [false, false, false, false];
@@ -25,7 +25,7 @@ function Game2(){
     const [player, setPlayer] = useState("Green's turn");
     const [winner, setWinner] = useState(0);
     const [rolling, setRolling] = useState("Click to Roll");
-    const [isStart, setIsStart] = useState(false);
+    const [isRestart, setIsRestart] = useState(false);
 
     //array creation
     let arr = new Array();
@@ -407,7 +407,7 @@ function Game2(){
     }
 
     function rollDice(){
-        setIsStart(true);
+        setIsRestart(true);
         playy();
         setIsWin(false);
         setRolling("Click to Roll");
@@ -1519,6 +1519,55 @@ function Game2(){
         }
     }
 
+    function restartHandle(){
+        setIsRestart(false);
+        ct4 = -1;
+        ct3 = -1;
+        ct2 = -1;
+        ct = 4;
+        f = [false, false, false, false];
+        start = [false, false, false, false];
+        isWinnerRemoved = [false, false, false, false];
+        setRandomDiceImg(<img src="/ds.png" alt="dice" ></img>);
+        setButtonArray1(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum1)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                )
+                return temp;
+            }
+        )
+        setButtonArray2(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum2)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                )
+                return temp;
+            }
+        )
+        setButtonArray3(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum3)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                )
+                return temp;
+            }
+        )
+        setButtonArray4(
+            (prev)=>{
+                temp = prev.map((eachbutton)=>
+                    (eachbutton.id === sum4)?{...eachbutton, data: "", isEqualToSum: false}:{...eachbutton}
+                ) 
+                return temp;
+            }
+        )
+        setSum1(0);
+        setSum2(0);
+        setSum3(0);
+        setSum4(0);
+        setPlayer("Green's turn");
+    }
+
     return (
         <div className="flex justify-evenly items-center h-[80vh]">
             <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-green-500 bg-auto bg-center">
@@ -1532,7 +1581,8 @@ function Game2(){
                 <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
                 <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
                 <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`Winner: Player${winner}!!`:`${player}`}</div> 
-                <Restart setIsStart={setIsStart} isStart={isStart}/>
+                {/* restart button */}
+                <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>Restart</button>
             </div>
         </div>
     );
