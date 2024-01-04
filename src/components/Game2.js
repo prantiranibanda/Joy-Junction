@@ -1628,7 +1628,7 @@ function Game2(){
 
     return (
         <div className="flex justify-evenly items-center h-[80vh]">
-            <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-green-500 bg-auto bg-center">
+            <div className="h-[485px] w-[485px] bg-[url('/ludoboard.jpg')] bg-no-repeat bg-orange-600 bg-auto bg-center">
                 <div className="grid grid-cols-10 h-[485px] w-[485px]">
                 {arr.map((ele, index)=>{
                     return (<MyCell key={index} index={index} buttonArray1={buttonArray1} buttonArray2={buttonArray2} buttonArray3={buttonArray3} buttonArray4={buttonArray4}/>);
