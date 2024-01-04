@@ -415,32 +415,34 @@ function Game2(){
             ct4++;
             if((ct4 % 4) === 0){
                 if(isWinnerRemoved[0] === false){
-                if(start[0] === false){
-                    if(randomNumber1 !== 1){
-                        setTimeout(() => {
-                            start[0] = false;
-                            setRolling("Click to Roll");
-                            setPlayer("Blue's turn");
-                            setRandomDiceImg(<img src={`/images/ds${randomNumber1}.png`} alt={`dice${randomNumber1}`}></img>);
-                            setRandomNumber1(((Math.floor(Math.random() * 6))+1));
-                        }, 1000);
+                    if(start[0] === false){
+                        if(randomNumber1 !== 1){
+                            setTimeout(() => {
+                                start[0] = false;
+                                setRolling("Click to Roll");
+                                setPlayer("Blue's turn");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber1}.png`} alt={`dice${randomNumber1}`}></img>);
+                                setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        else{
+                            setTimeout(() => {
+                                start[0] = true;
+                                setRolling("Click to Roll");
+                                setSum1(1);
+                                setPlayer("Blue's turn");
+                                setRandomDiceImg(<img src={`/images/ds${randomNumber1}.png`} alt={`dice${randomNumber1}`}></img>);
+                                setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                            }, 1000);
+                        }
+                        
                     }
                     else{
+                        func1();
                         setTimeout(() => {
-                            start[0] = true;
-                            setRolling("Click to Roll");
-                            setSum1(1);
-                            setPlayer("Blue's turn");
-                            setRandomDiceImg(<img src={`/images/ds${randomNumber1}.png`} alt={`dice${randomNumber1}`}></img>);
-                            setRandomNumber1(((Math.floor(Math.random() * 6))+1));
+                        setPlayer("Blue's turn"); 
                         }, 1000);
                     }
-                    
-                }
-                else{
-                    func1();
-                    setPlayer("Blue's turn");
-                }
                 }
             }
             if((ct4 % 4) === 1){
@@ -468,7 +470,9 @@ function Game2(){
                 }
                 else{
                     func2();
-                    setPlayer("Yellow's turn");
+                    setTimeout(() => {
+                        setPlayer("Yellow's turn");  
+                    }, 1000);
                 }
             }
             if((ct4 % 4) === 2){
@@ -496,7 +500,10 @@ function Game2(){
                 }
                 else{
                     func3();
-                    setPlayer("Red's turn");
+                    setTimeout(() => {
+                        setPlayer("Red's turn"); 
+                    }, 1000);
+                    
                 }
             }
             if((ct4 % 4) === 3){
@@ -524,7 +531,9 @@ function Game2(){
                 }
                 else{
                     func4();
-                    setPlayer("Green's turn");
+                    setTimeout(() => {
+                        setPlayer("Green's turn");
+                    }, 1000);
                 }
             }
         }, 500);
