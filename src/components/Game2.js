@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import win from '../audio/win.wav';
 import click from '../audio/click.mp3';
 
-let f = [false, false, false, false];
-let count = -1;
-let ct = 4; //contolls rolldice 1 2 3
+let ct4 = -1;
+let ct = 4; //used to reduce the no of dice to call function rollDice, rollDice3, rollDice2 
 let ct3 = 2;
 let ct2 = 1;
+let f = [false, false, false, false];
 let start = [false, false, false, false];
 let isWinnerRemoved = [false, false, false, false];
 let wino = new Audio(win);
@@ -412,8 +412,8 @@ function Game2(){
             setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             
-            count++;
-            if((count % 4) === 0){
+            ct4++;
+            if((ct4 % 4) === 0){
                 if(isWinnerRemoved[0] === false){
                 if(start[0] === false){
                     if(randomNumber1 !== 1){
@@ -443,7 +443,7 @@ function Game2(){
                 }
                 }
             }
-            if((count % 4) === 1){
+            if((ct4 % 4) === 1){
                 if(start[1] === false){
                     if(randomNumber2 !== 1){
                         setTimeout(() => {
@@ -471,7 +471,7 @@ function Game2(){
                     setPlayer("Yellow's turn");
                 }
             }
-            if((count % 4) === 2){
+            if((ct4 % 4) === 2){
                 if(start[2] === false){
                     if(randomNumber3 !== 1){
                         setTimeout(() => {
@@ -499,7 +499,7 @@ function Game2(){
                     setPlayer("Red's turn");
                 }
             }
-            if((count % 4) === 3){
+            if((ct4 % 4) === 3){
                 if(start[3] === false){
                     if(randomNumber4 !== 1){
                         setTimeout(() => {
@@ -1027,7 +1027,7 @@ function Game2(){
             setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             ct2++;
-            if((count % 4) === 2){
+            if((ct4 % 4) === 2){
                 if((ct2 % 2) === 0){
                     if(start[3] === false){
                         if(randomNumber4 !== 1){
@@ -1093,7 +1093,7 @@ function Game2(){
                     }
                 }
             }
-            if((count % 4) === 0){
+            if((ct4 % 4) === 0){
                 if((ct2 % 2) === 0){
                     if(start[1] === false){
                         if(randomNumber2 !== 1){
@@ -1306,7 +1306,7 @@ function Game2(){
             setRolling("🎲Rolling...")
             setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
             ct2++;
-            if((count % 4) === 1){
+            if((ct4 % 4) === 1){
                 if((ct2 % 2) === 0){
                     if(start[2] === false){
                         if(randomNumber3 !== 1){
@@ -1372,7 +1372,7 @@ function Game2(){
                     }
                 }
             }
-            if((count % 4) === 3){
+            if((ct4 % 4) === 3){
                 if((ct2 % 2) === 0){
                     if(start[0] === false){
                         if(randomNumber1 !== 1){
