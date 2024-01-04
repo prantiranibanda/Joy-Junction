@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import win from '../audio/win.wav';
 import click from '../audio/click.mp3';
+import Restart from "./Restart";
 
 let ct4 = -1;
 let ct = 4; //used to reduce the no of dice to call function rollDice, rollDice3, rollDice2 
@@ -24,6 +25,7 @@ function Game2(){
     const [player, setPlayer] = useState("Green's turn");
     const [winner, setWinner] = useState(0);
     const [rolling, setRolling] = useState("Click to Roll");
+    const [isStart, setIsStart] = useState(false);
 
     //array creation
     let arr = new Array();
@@ -405,6 +407,7 @@ function Game2(){
     }
 
     function rollDice(){
+        setIsStart(true);
         playy();
         setIsWin(false);
         setRolling("Click to Roll");
@@ -1526,9 +1529,10 @@ function Game2(){
                 </div>
             </div>
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
-                <div className="w-52 h-52 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded mt-5" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
-                <div className="font-mono font-bold text-center text-4xl text-cyan-200 pb-10">{(isWin)?`Winner: Player${winner}!!`:`${player}`}</div> 
+                <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
+                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
+                <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`Winner: Player${winner}!!`:`${player}`}</div> 
+                <Restart setIsStart={setIsStart} isStart={isStart}/>
             </div>
         </div>
     );
