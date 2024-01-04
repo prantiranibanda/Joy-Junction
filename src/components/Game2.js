@@ -1638,7 +1638,7 @@ function Game2(){
             <div>
                 <div className={(result)?"hidden":"bg-[#ffed7a] flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-xl border-4 border-yellow-500"}>   
                     <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                    <button className="bg-orange-400 border-2 border-white text-xl font-bold text-center text-white px-6 py-3 rounded-lg shadow-lg shadow-orange-600/40 hover:shadow-xl hover:shadow-pink-400/40" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
+                    <button className="w-48 bg-orange-400 border-2 border-white text-xl font-bold text-center text-white px-6 py-3 rounded-lg shadow-lg shadow-orange-600/40 hover:shadow-xl hover:shadow-pink-700/40" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
                     <div className="font-bold text-center text-4xl text-cyan-500">{(isWin)?`${winner}`:`${player}`}</div> 
                     {/* restart button */}
                     <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
