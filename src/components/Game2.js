@@ -560,7 +560,6 @@ function Game2(){
                                 setPlayer("Yellow's turn");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber2}.png`} alt={`dice${randomNumber2}`}></img>);
                                 setRandomNumber2(((Math.floor(Math.random() * 6))+1));
-                                console.log("1",player,ct3,"--------------");
                             }, 1000);
                         }
                         
@@ -592,7 +591,6 @@ function Game2(){
                                 setPlayer("Red's turn");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber3}.png`} alt={`dice${randomNumber3}`}></img>);
                                 setRandomNumber3(((Math.floor(Math.random() * 6))+1)); 
-                                console.log("1",player,ct3,"--------------");
                             }, 1000);
                         }
                         
@@ -624,7 +622,6 @@ function Game2(){
                                 setPlayer("Blue's turn");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber4}.png`} alt={`dice${randomNumber4}`}></img>);
                                 setRandomNumber4(((Math.floor(Math.random() * 6))+1));
-                                console.log("1",player,ct3,"--------------");
                             }, 1000);
                         }
                         
@@ -749,7 +746,6 @@ function Game2(){
                 setRandomDiceImg(<a href="https://www.animatedimages.org/cat-dice-710.htm"><img src="https://www.animatedimages.org/data/media/710/animated-dice-image-0063.gif" border="0" alt="animated-dice-image-0063" className="h-56 w-56" /></a>)
                 
                 ct3++;
-                console.log("3",player,count,ct3);
                 if((ct3 % 3) === 1){
                     if(isWinnerRemoved[0] === false){
                     if(start[0] === false){
@@ -803,7 +799,6 @@ function Game2(){
                                 setPlayer("Red's turn");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber2}.png`} alt={`dice${randomNumber2}`}></img>);
                                 setRandomNumber2(((Math.floor(Math.random() * 6))+1));
-                                console.log("3",player,ct3,"--------------");
                             }, 1000);
                         }
                         
@@ -835,7 +830,6 @@ function Game2(){
                                 setPlayer("Green's turn");
                                 setRandomDiceImg(<img src={`/images/ds${randomNumber4}.png`} alt={`dice${randomNumber4}`}></img>);
                                 setRandomNumber4(((Math.floor(Math.random() * 6))+1));
-                                console.log("3",player,ct3,"--------------");
                             }, 1000);
                         }
                         
@@ -942,7 +936,6 @@ function Game2(){
                             
                         }, 1000);
                     }
-                    console.log("4",player,ct3,"--------------");
                 }
                 else{
                     func3();
