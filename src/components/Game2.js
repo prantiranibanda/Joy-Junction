@@ -23,7 +23,7 @@ function Game2(){
     const [randomNumber4, setRandomNumber4] = useState((Math.floor(Math.random() * 6))+1);
     const [isWin, setIsWin] = useState(false);
     const [player, setPlayer] = useState("Green's turn");
-    const [winner, setWinner] = useState(0);
+    const [winner, setWinner] = useState("");
     const [rolling, setRolling] = useState("Click to Roll");
     const [isRestart, setIsRestart] = useState(false);
 
@@ -114,11 +114,48 @@ function Game2(){
     function handleWin(s,no){
         if(s === 100){
             setIsWin(true);
-            //console.log("Win");
             winclick();
-            setWinner(no);
-            isWinnerRemoved[no-1] = true;
             ct--;
+            //1st...................................
+            if(no === 1 && ct === 3){
+               setWinner("1st:Green"); 
+            }
+            if(no === 2 && ct === 3){
+                setWinner("1st:Blue"); 
+            }
+            if(no === 3 && ct === 3){
+                setWinner("1st:Yellow"); 
+            }
+            if(no === 4 && ct === 3){
+                setWinner("1st:Red"); 
+            }
+            //2nd....................................
+            if(no === 1 && ct === 2){
+                setWinner("2nd:Green"); 
+            }
+            if(no === 2 && ct === 2){
+                setWinner("2nd:Blue"); 
+            }
+            if(no === 3 && ct === 2){
+                setWinner("2nd:Yellow"); 
+            }
+            if(no === 4 && ct === 2){
+                setWinner("2nd:Red"); 
+            }
+            //3rd....................................
+            if(no === 1 && ct === 1){
+                setWinner("3rd:Green"); 
+            }
+            if(no === 2 && ct === 1){
+                setWinner("3rd:Blue"); 
+            }
+            if(no === 3 && ct === 1){
+                setWinner("3rd:Yellow"); 
+            }
+            if(no === 4 && ct === 1){
+                setWinner("3rd:Red"); 
+            }
+            isWinnerRemoved[no-1] = true;
         }
     }
 
@@ -1580,7 +1617,7 @@ function Game2(){
             <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
                 <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
                 <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
-                <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`Winner: Player${winner}!!`:`${player}`}</div> 
+                <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`${winner}`:`${player}`}</div> 
                 {/* restart button */}
                 <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
             </div>
