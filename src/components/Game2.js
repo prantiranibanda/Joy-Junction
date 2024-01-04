@@ -119,53 +119,53 @@ function Game2(){
             ct--;
             //1st...................................
             if(no === 1 && ct === 3){
-                setWinner("1st:Green"); 
+                setWinner("💚 1st: Green"); 
                 resultArray.push("💚 1st: Green");
             }
             if(no === 2 && ct === 3){
-                setWinner("1st:Blue");
+                setWinner("💙 1st: Blue");
                 resultArray.push("💙 1st: Blue"); 
             }
             if(no === 3 && ct === 3){
-                setWinner("1st:Yellow"); 
+                setWinner("💛 1st: Yellow"); 
                 resultArray.push("💛 1st: Yellow"); 
             }
             if(no === 4 && ct === 3){
-                setWinner("1st:Red");
+                setWinner("❤️ 1st: Red");
                 resultArray.push("❤️ 1st: Red");  
             }
             //2nd....................................
             if(no === 1 && ct === 2){
-                setWinner("2nd:Green"); 
+                setWinner("💚 2nd: Green"); 
                 resultArray.push("💚 2nd: Green"); 
             }
             if(no === 2 && ct === 2){
-                setWinner("2nd:Blue"); 
+                setWinner("💙 2nd: Blue"); 
                 resultArray.push("💙 2nd: Blue"); 
             }
             if(no === 3 && ct === 2){
-                setWinner("2nd:Yellow"); 
+                setWinner("💛 2nd: Yellow"); 
                 resultArray.push("💛 2nd: Yellow"); 
             }
             if(no === 4 && ct === 2){
-                setWinner("2nd:Red"); 
+                setWinner("❤️ 2nd: Red"); 
                 resultArray.push("❤️ 2nd: Red"); 
             }
             //3rd....................................
             if(no === 1 && ct === 1){
-                setWinner("3rd:Green");
+                setWinner("💚 3rd: Green");
                 resultArray.push("💚 3rd: Green");  
             }
             if(no === 2 && ct === 1){
-                setWinner("3rd:Blue");
+                setWinner("💙 3rd: Blue");
                 resultArray.push("💙 3rd: Blue");   
             }
             if(no === 3 && ct === 1){
-                setWinner("3rd:Yellow"); 
+                setWinner("💛 3rd: Yellow"); 
                 resultArray.push("💛 3rd: Yellow");  
             }
             if(no === 4 && ct === 1){
-                setWinner("3rd:Red"); 
+                setWinner("❤️ 3rd: Red"); 
                 resultArray.push("❤️ 3rd: Red");  
             }
             isWinnerRemoved[no-1] = true;
@@ -1636,15 +1636,15 @@ function Game2(){
                 </div>
             </div>
             <div>
-                <div className={(result)?"hidden":"flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300"}>   
+                <div className={(result)?"hidden":"bg-[#ffed7a] flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-xl border-4 border-yellow-500"}>   
                     <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                    <button className="bg-yellow-300 border-2 border-white text-xl font-bold text-center text-pink-700 px-6 py-3 rounded" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
-                    <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`${winner}`:`${player}`}</div> 
+                    <button className="bg-orange-400 border-2 border-white text-xl font-bold text-center text-white px-6 py-3 rounded-lg shadow-lg shadow-orange-600/40 hover:shadow-xl hover:shadow-pink-400/40" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
+                    <div className="font-bold text-center text-4xl text-cyan-500">{(isWin)?`${winner}`:`${player}`}</div> 
                     {/* restart button */}
                     <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
                 </div> 
-                <div className={(result)?"flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300":"hidden"}>
-                    <div className="font-mono font-bold text-center text-4xl text-cyan-400">Snake-Ladder Game</div>
+                <div className={(result)?"flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-xl border-4 border-yellow-300":"hidden"}>
+                    <div className="font-bold text-center text-4xl text-cyan-400">Snake-Ladder Game</div>
                     {
                         resultArray.map((ele)=>{
                             return <div className="text-2xl text-center bg-yellow-300 border-2 border-white rounded-lg my-3 font-bold text-[#fa02e1] w-80 px-5 py-3">{ele}</div>
