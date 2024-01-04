@@ -11,6 +11,7 @@ let f = [false, false, false, false];
 let start = [false, false, false, false];
 let isWinnerRemoved = [false, false, false, false];
 let wino = new Audio(win);
+let resultArray = new Array(3);
 function Game2(){
     const [randomDiceImg, setRandomDiceImg] = useState(<img src="/ds.png" alt="dice" ></img>);
     const [sum1, setSum1] = useState(0);
@@ -26,7 +27,7 @@ function Game2(){
     const [winner, setWinner] = useState("");
     const [rolling, setRolling] = useState("Click to Roll");
     const [isRestart, setIsRestart] = useState(false);
-
+    const [result, setResult] = useState(false);
     //array creation
     let arr = new Array();
     let k=111;
@@ -118,42 +119,54 @@ function Game2(){
             ct--;
             //1st...................................
             if(no === 1 && ct === 3){
-               setWinner("1st:Green"); 
+                setWinner("1st:Green"); 
+                resultArray.push("💚 1st: Green");
             }
             if(no === 2 && ct === 3){
-                setWinner("1st:Blue"); 
+                setWinner("1st:Blue");
+                resultArray.push("💙 1st: Blue"); 
             }
             if(no === 3 && ct === 3){
                 setWinner("1st:Yellow"); 
+                resultArray.push("💛 1st: Yellow"); 
             }
             if(no === 4 && ct === 3){
-                setWinner("1st:Red"); 
+                setWinner("1st:Red");
+                resultArray.push("❤️ 1st: Red");  
             }
             //2nd....................................
             if(no === 1 && ct === 2){
                 setWinner("2nd:Green"); 
+                resultArray.push("💚 2nd: Green"); 
             }
             if(no === 2 && ct === 2){
                 setWinner("2nd:Blue"); 
+                resultArray.push("💙 2nd: Blue"); 
             }
             if(no === 3 && ct === 2){
                 setWinner("2nd:Yellow"); 
+                resultArray.push("💛 2nd: Yellow"); 
             }
             if(no === 4 && ct === 2){
                 setWinner("2nd:Red"); 
+                resultArray.push("❤️ 2nd: Red"); 
             }
             //3rd....................................
             if(no === 1 && ct === 1){
-                setWinner("3rd:Green"); 
+                setWinner("3rd:Green");
+                resultArray.push("💚 3rd: Green");  
             }
             if(no === 2 && ct === 1){
-                setWinner("3rd:Blue"); 
+                setWinner("3rd:Blue");
+                resultArray.push("💙 3rd: Blue");   
             }
             if(no === 3 && ct === 1){
                 setWinner("3rd:Yellow"); 
+                resultArray.push("💛 3rd: Yellow");  
             }
             if(no === 4 && ct === 1){
                 setWinner("3rd:Red"); 
+                resultArray.push("❤️ 3rd: Red");  
             }
             isWinnerRemoved[no-1] = true;
         }
@@ -175,7 +188,7 @@ function Game2(){
             }
             setRandomNumber1(((Math.floor(Math.random() * 6))+1));
             setRandomDiceImg(<img src={`/images/ds${randomNumber1}.png`} alt={`dice${randomNumber1}`}></img>);
-            let s = sum1 + randomNumber1;
+            let s = 100//sum1 + randomNumber1;
             if(s>100){
                 f[0] = true;
                 //console.log(f);
@@ -246,7 +259,7 @@ function Game2(){
         }
         setRandomNumber2(((Math.floor(Math.random() * 6))+1));
         setRandomDiceImg(<img src={`/images/ds${randomNumber2}.png`} alt={`dice${randomNumber2}`}></img>);
-        let s = sum2 + randomNumber2;
+        let s = 100//sum2 + randomNumber2;
         if(s>100){
             f[1] = true;
             //console.log(f);
@@ -317,7 +330,7 @@ function Game2(){
         }
         setRandomNumber3(((Math.floor(Math.random() * 6))+1));
         setRandomDiceImg(<img src={`/images/ds${randomNumber3}.png`} alt={`dice${randomNumber3}`}></img>);
-        let s = sum3 + randomNumber3;
+        let s = 100//sum3 + randomNumber3;
         if(s>100){
             f[2] = true;
             //console.log(f);
@@ -388,7 +401,7 @@ function Game2(){
             }
             setRandomNumber4(((Math.floor(Math.random() * 6))+1));
             setRandomDiceImg(<img src={`/images/ds${randomNumber4}.png`} alt={`dice${randomNumber4}`}></img>);
-            let s = sum4 + randomNumber4;
+            let s = 100//sum4 + randomNumber4;
             if(s>100){
                 f[3] = true;
                 //console.log(f);
@@ -1557,6 +1570,13 @@ function Game2(){
     }
 
     function restartHandle(){
+        if(ct === 1){
+            setResult(true);
+        }
+        else{
+            setResult(false);
+            resultArray = [];
+        }
         setIsRestart(false);
         ct4 = -1;
         ct3 = -1;
@@ -1603,6 +1623,7 @@ function Game2(){
         setSum3(0);
         setSum4(0);
         setPlayer("Green's turn");
+        setWinner("Green's turn");
     }
 
     return (
@@ -1614,12 +1635,23 @@ function Game2(){
                 })}
                 </div>
             </div>
-            <div className="flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300">
-                <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
-                <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
-                <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`${winner}`:`${player}`}</div> 
-                {/* restart button */}
-                <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
+            <div className="">
+                <div className={(result)?"hidden":"flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300"}>   
+                    <div className="w-48 h-48 rounded-lg text-white font-bold text-2xl">{randomDiceImg}</div>
+                    <button className="bg-yellow-300 text-pink-700 px-6 py-3 rounded" onClick={(ct === 4)? rollDice : ((ct === 3)? rollDice3 : rollDice2)}>{rolling}</button>
+                    <div className="font-mono font-bold text-center text-4xl text-cyan-200">{(isWin)?`${winner}`:`${player}`}</div> 
+                    {/* restart button */}
+                    <button className={(isRestart)? "bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" : "hidden"} onClick={restartHandle}>{(ct === 1)? "Finish": "Restart"}</button>
+                </div> 
+                <div className={(result)?"flex flex-col justify-evenly items-center h-[485px] w-[485px] rounded-3xl border-4 border-yellow-300":"hidden"}>
+                    <div className="font-mono font-bold text-center text-4xl text-cyan-400">Snake-Ladder Game</div>
+                    {
+                        resultArray.map((ele)=>{
+                            return <div className="text-2xl text-center bg-yellow-300 border-2 border-white rounded-lg my-3 font-bold text-[#fa02e1] w-80 px-5 py-3">{ele}</div>
+                        })
+                    }
+                    <button className="bg-[#fa02e1] w-64 text-2xl text-yellow-200 font-mono font-bold py-3 px-12 rounded-lg border-2 border-white shadow-lg shadow-blue-800/40 hover:shadow-xl hover:shadow-cyan-300/40" onClick={restartHandle}>Restart</button>
+                </div>
             </div>
         </div>
     );
