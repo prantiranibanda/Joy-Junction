@@ -17,7 +17,7 @@ function Game1() {
 	const [player, setPlayer] = useState("Player-X's turn");
 	const [displayWin, setDisplayWin] = useState(
 		<div>
-			<div className="text-center font-mono text-6xl font-bold text-cyan-200">
+			<div className="text-center font-mono text-4xl font-bold text-cyan-200">
 				{player}
 			</div>
 		</div>,
@@ -25,7 +25,7 @@ function Game1() {
 	useEffect(() => {
 		setDisplayWin(
 			<div>
-				<div className="text-center font-mono text-6xl font-bold text-cyan-200">
+				<div className="text-center font-mono text-4xl font-bold text-cyan-200">
 					{player}
 				</div>
 			</div>,
@@ -120,7 +120,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		} else if (
@@ -141,7 +141,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		} else if (
@@ -162,7 +162,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		}
@@ -185,7 +185,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		} else if (
@@ -206,7 +206,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		} else if (
@@ -227,7 +227,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		}
@@ -250,7 +250,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		} else if (
@@ -271,7 +271,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerX"
+					win="Winner: Player-X"
 				/>,
 			);
 		}
@@ -295,7 +295,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		} else if (
@@ -316,7 +316,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		} else if (
@@ -337,7 +337,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		}
@@ -360,7 +360,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		} else if (
@@ -381,7 +381,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		} else if (
@@ -402,7 +402,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		}
@@ -425,7 +425,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		} else if (
@@ -446,7 +446,7 @@ function Game1() {
 					setDisplayWin={setDisplayWin}
 					player={player}
 					setPlayer={setPlayer}
-					win="Winner: playerO"
+					win="Winner: Player-O"
 				/>,
 			);
 		} else if (
