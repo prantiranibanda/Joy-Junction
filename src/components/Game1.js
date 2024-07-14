@@ -14,7 +14,7 @@ function Game1() {
 	//handles the toggling of x and o
 	const [isZero, setIsZero] = useState(true);
 	//displaying winner and alternative player using displayWin and player state
-	const [player, setPlayer] = useState("Gooo....PlayerX");
+	const [player, setPlayer] = useState("Player-X's turn");
 	const [displayWin, setDisplayWin] = useState(
 		<div>
 			<div className="text-center font-mono text-6xl font-bold text-cyan-200">
@@ -497,7 +497,7 @@ function Game1() {
 						);
 						return temp;
 					});
-					setPlayer("PlayerO's turn");
+					setPlayer("Player-O's turn");
 				} else {
 					setStr(prev => {
 						temp = prev.map(eachStr =>
@@ -507,7 +507,7 @@ function Game1() {
 						);
 						return temp;
 					});
-					setPlayer("PlayerX's turn");
+					setPlayer("Player-X's turn");
 				}
 			} else if (winner === true) {
 				//alert("Please restart the game, we have already got our winner..!!");
