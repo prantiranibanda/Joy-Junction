@@ -67,7 +67,7 @@ function Winner({
 		setStr(strArray);
 		//console.log("object")
 		setIsZero(true);
-		setPlayer("Gooooo.....PlayerX");
+		setPlayer("Player-X's turn");
 		setWinner(false);
 
 		// setDisplayWin(
